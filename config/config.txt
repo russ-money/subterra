@@ -14,13 +14,13 @@ $include antag_rep.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-SERVERNAME Blackstone
+SERVERNAME Subterra
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 # SERVERSQLNAME tgstation
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Blackstone
+STATIONNAME Subterra
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 HUB
@@ -189,7 +189,7 @@ VOTE_PERIOD 1200
 # DONT_DEL_NEWMOB
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Glennzer
+HOSTEDBY Russ Money
 
 ## Set to jobban "Guest-" accounts from Captain, HoS, HoP, CE, RD, CMO, Warden, Security, Detective, and AI positions.
 ## Set to 1 to jobban them from those positions, set to 0 to allow them.
@@ -232,16 +232,16 @@ USEBLACKLIST
 # SERVER ss13.example.com:2506
 
 ## Discod address
-DISCORDURL https://discord.gg/bx9c7ha5Qk
+DISCORDURL https://discord.gg/honk
 
 ## Wiki address
-WIKIURL https://wiki.moviesfreepremium.xyz/blackstone
+WIKIURL https://honksquad.com
 
 ## Rules address
-RULESURL https://wiki.moviesfreepremium.xyz/blackstone/rules
+RULESURL https://honksquad.com/ss13
 
 ## Github address
-GITHUBURL https://github.com/Blackstone-SS13/BLACKSTONE
+GITHUBURL https://github.com/russ-money/subterra
 
 ## Round specific stats address
 ## Link to round specific parsed logs; IE statbus. It is appended with the RoundID automatically by ticker/Reboot()
