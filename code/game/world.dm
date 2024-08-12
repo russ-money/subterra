@@ -307,14 +307,16 @@ GLOBAL_VAR(restart_counter)
 	s += "<center><a href=\"https://discord.gg/honk\">"
 #ifdef MATURESERVER
 	s += "<big><b>SUBTERRA</b></big></a><br>"
-	s += "<b>Fantasy Computer Roleplaying Game</b></center><br>"
+	s += "<b>Non-ERP Medieval Fantasy Role-Play</b></center><br>"
+	s += "Hosted by: <a href=\"https://honksquad.com/\"><b>HonkSquad.com</b></a><br>"
 #else
 	s += "<big><b>SUBTERRA</b></big></a><br>"
-	s += "<b>Fantasy Computer Survival Game</b></center><br>"
+	s += "<b>Non-ERP Medieval Fantasy Role-Play</b></center><br>"
+	s += "Hosted by: <a href=\"https://honksquad.com/\"><b>HonkSquad.com</b></a><br>"
 #endif
-//	s += "<img src=\"https://i.imgur.com/shj547T.jpg\"></a></center>"
+//	s += "<img src=\"https://i.imgur.com/beKNAnC.png\"></a></center>"
 
-//	s += "! <b>UPDATE 4.4</b> 4/22/2022<br><br>"
+//	s += "! <b>UPDATE 1.0</b> 8/12/2024<br><br>"
 #ifdef MATURESERVER
 	s += "\["
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
