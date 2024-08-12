@@ -97,6 +97,7 @@ GLOBAL_VAR_INIT(underworld_coins, 0)
 	desc = "This is more than just a coin."
 	icon = 'icons/roguetown/underworld/enigma_husks.dmi'
 	icon_state = "soultoken_floor"
+	var/angle = 0 // To keep track of the current angle
 	var/should_track = TRUE
 
 /obj/item/underworld/coin/Initialize()
@@ -108,6 +109,7 @@ GLOBAL_VAR_INIT(underworld_coins, 0)
 	if(should_track)
 		GLOB.underworld_coins -= 1
 	coin_upkeep()
+	STOP_PROCESSING(SSobj, src)
 	return ..()
 
 /obj/item/underworld/coin/pickup(mob/user)
@@ -116,21 +118,40 @@ GLOBAL_VAR_INIT(underworld_coins, 0)
 		GLOB.underworld_coins -= 1
 	coin_upkeep()
 	icon_state = "soultoken"
+	START_PROCESSING(SSobj, src)
 
 /obj/item/underworld/coin/dropped(mob/user)
 	..()
 	if(should_track)
 		GLOB.underworld_coins += 1
 	icon_state = "soultoken_floor"
+	STOP_PROCESSING(SSobj, src)
 
 /obj/item/underworld/coin/notracking
 	should_track = FALSE
+
+/obj/item/underworld/coin/process()
+	var/target = locate(/obj/structure/underworld/carriageman)
+	if(!target)
+		return
+	var/turf/P = get_turf(target)
+	var/turf/Q = get_turf(src) 
+
+	var/target_angle = Get_Angle(Q, P)
+
+	var/difference = target_angle - angle
+	angle = target_angle
+	if(!difference)
+		return
+
+	var/matrix/final = matrix(transform)
+	final.Turn(difference)
+	animate(src, transform = final, time = 5, loop = 0)
 
 /proc/coin_upkeep()
 	if(GLOB.underworld_coins < 8)
 		for(var/obj/effect/landmark/underworldcoin/B in GLOB.landmarks_list)
 			new /obj/item/underworld/coin(B.loc)
-	
 
 // why not also some mob stuff too
 /mob/living/simple_animal/hostile/rogue/dragger
