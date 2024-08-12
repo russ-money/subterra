@@ -2,7 +2,6 @@
 	category = CATEGORY_ADMIN
 	weight = WEIGHT_ADMIN
 
-/*
 /datum/keybinding/admin/admin_say
 	hotkey_keys = list("F3")
 	name = "admin_say"
@@ -12,7 +11,7 @@
 /datum/keybinding/admin/admin_say/down(client/user)
 	user.get_admin_say()
 	return TRUE
-
+	
 /datum/keybinding/admin/admin_ghost
 	hotkey_keys = list("F5")
 	name = "admin_ghost"
@@ -33,16 +32,6 @@
 	user.holder.player_panel_new()
 	return TRUE
 
-/datum/keybinding/admin/toggle_buildmode_self
-	hotkey_keys = list("F7")
-	name = "toggle_buildmode_self"
-	full_name = "Toggle Buildmode Self"
-	description = "Toggles buildmode"
-
-/datum/keybinding/admin/toggle_buildmode_self/down(client/user)
-	user.togglebuildmodeself()
-	return TRUE
-
 /datum/keybinding/admin/stealthmode
 	hotkey_keys = list("CtrlF8")
 	name = "stealth_mode"
@@ -51,6 +40,16 @@
 
 /datum/keybinding/admin/stealthmode/down(client/user)
 	user.stealth()
+	return TRUE
+/*
+/datum/keybinding/admin/toggle_buildmode_self
+	hotkey_keys = list("F7")
+	name = "toggle_buildmode_self"
+	full_name = "Toggle Buildmode Self"
+	description = "Toggles buildmode"
+
+/datum/keybinding/admin/toggle_buildmode_self/down(client/user)
+	user.togglebuildmodeself()
 	return TRUE
 
 /datum/keybinding/admin/invisimin
