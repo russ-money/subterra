@@ -199,7 +199,7 @@
 
 	log_game("The round has ended.")
 
-	to_chat(world, "<BR><BR><BR><span class='reallybig'>So ends this tale of Blackstone.</span>")
+	to_chat(world, "<BR><BR><BR><span class='reallybig'>So ends this tale of Subterra.</span>")
 	get_end_reason()
 
 	var/list/key_list = list()
@@ -296,7 +296,7 @@
 	SSblackbox.Seal()
 
 	sleep(10 SECONDS)
-	SSvote.initiate_vote("map", "Blackstone players")
+	SSvote.initiate_vote("map", "Subterra players")
 	ready_for_reboot = TRUE
 	standard_reboot()
 
