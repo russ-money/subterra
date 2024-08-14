@@ -232,13 +232,13 @@ USEBLACKLIST
 # SERVER ss13.example.com:2506
 
 ## Discod address
-DISCORDURL https://discord.gg/honk
+DISCORDURL https://discord.gg/TpMUr67XbB
 
 ## Wiki address
-WIKIURL https://honksquad.com
+WIKIURL https://subterra.honksquad.com/
 
 ## Rules address
-RULESURL https://honksquad.com/ss13
+RULESURL https://subterra.honksquad.com/en/Rules
 
 ## Github address
 GITHUBURL https://github.com/russ-money/subterra
