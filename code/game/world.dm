@@ -304,15 +304,15 @@ GLOBAL_VAR(restart_counter)
 
 /world/proc/update_status()
 	var/s = ""
-	s += "<center><a href=\"https://discord.gg/honk\">"
+	s += "<center><a href=\"https://subterra.honksquad.com\">"
 #ifdef MATURESERVER
-	s += "<big><b>SUBTERRA</b></big></a><br>"
+	s += "<big><b>SUBTERRA</b></big></a> - (<a href=\"https://discord.gg/TpMUr67XbB\">Discord</a>)<br>"
 	s += "<b>Non-ERP Medieval Fantasy Role-Play</b></center><br>"
-	s += "Hosted by: <a href=\"https://honksquad.com/\"><b>HonkSquad.com</b></a><br>"
+	s += "Hosted by: <a href=\"https://honksquad.com\"><b>HonkSquad.com</b></a><br>"
 #else
-	s += "<big><b>SUBTERRA</b></big></a><br>"
+	s += "<big><b>SUBTERRA</b></big></a> - (<a href=\"https://discord.gg/TpMUr67XbB\">Discord</a>)<br>"
 	s += "<b>Non-ERP Medieval Fantasy Role-Play</b></center><br>"
-	s += "Hosted by: <a href=\"https://honksquad.com/\"><b>HonkSquad.com</b></a><br>"
+	s += "Hosted by: <a href=\"https://honksquad.com\"><b>HonkSquad.com</b></a><br>"
 #endif
 //	s += "<img src=\"https://i.imgur.com/beKNAnC.png\"></a></center>"
 
