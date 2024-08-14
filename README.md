@@ -6,4 +6,4 @@ The goal of Subterra is to provide a free-form fantasy role-play environment wit
 The wiki is currently being worked on and can be found [here](https://subterra.honksquad.com/).
 
 ## Discord
-Our Discord server and community can be found [here](https://discord.gg/TpMUr67XbB)
+Our Discord server and community can be found [here](https://discord.gg/TpMUr67XbB).
