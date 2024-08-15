@@ -307,12 +307,10 @@ GLOBAL_VAR(restart_counter)
 	s += "<center><a href=\"https://subterra.honksquad.com\">"
 #ifdef MATURESERVER
 	s += "<big><b>SUBTERRA</b></big></a> - (<a href=\"https://discord.gg/TpMUr67XbB\">Discord</a>)<br>"
-	s += "<b>Non-ERP Medieval Fantasy Role-Play</b>(ENG), US-West</center><br>"
-	s += "Hosted by: <a href=\"https://honksquad.com\"><b>HonkSquad.com</b></a><br>"
+	s += "<b>Non-ERP Medieval Fantasy Role-Play</b> (ENG), US-West</center><br>"
 #else
 	s += "<big><b>SUBTERRA</b></big></a> - (<a href=\"https://discord.gg/TpMUr67XbB\">Discord</a>)<br>"
-	s += "<b>Non-ERP Medieval Fantasy Role-Play</b>(ENG), US-West</center><br>"
-	s += "Hosted by: <a href=\"https://honksquad.com\"><b>HonkSquad.com</b></a><br>"
+	s += "<b>Non-ERP Medieval Fantasy Role-Play</b> (ENG), US-West</center><br>"
 #endif
 //	s += "<img src=\"https://i.imgur.com/beKNAnC.png\"></a></center>"
 
