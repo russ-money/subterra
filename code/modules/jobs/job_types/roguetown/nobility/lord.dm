@@ -11,7 +11,6 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	spawn_positions = 1
 	selection_color = JCOLOR_NOBLE
 	allowed_races = list("Humen")
-	allowed_sexes = list(MALE)
 
 	spells = list(
 		/obj/effect/proc_holder/spell/self/grant_title,

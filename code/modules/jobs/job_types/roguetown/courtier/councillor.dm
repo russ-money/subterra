@@ -13,7 +13,6 @@
 		"Dwarf",
 		"Aasimar",
 	)
-	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_COUNCILLOR
 	tutorial = "You may have inherited this role, bought your way into it, or were appointed by the bailiff; \
 			Whatever it was you now serve as a assistant, planner, and juror for the Bailiff. \

@@ -28,7 +28,6 @@
 	desc = ""
 	icon_state = "priestunder"
 	sleeved = null
-	allowed_sex = list(MALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar")
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/black
@@ -180,7 +179,6 @@
 	body_parts_covered = CHEST|GROIN|LEGS|VITALS
 	icon_state = "dress"
 	item_state = "dress"
-	allowed_sex = list(FEMALE)
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 

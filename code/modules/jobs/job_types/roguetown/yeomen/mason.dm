@@ -12,7 +12,6 @@
 		"Dwarf",
 		"Half Orc",
 	) //only "tough" races
-	allowed_sexes = list(MALE, FEMALE)
 
 	tutorial = "There are ancient secrets within stone, something your creed has known since man built upon dirt. You've pride in your work, youre the only reason this place doesnt fall apart. The King could replace you in a heartbeat, prove to them why youre the Master Mason."
 

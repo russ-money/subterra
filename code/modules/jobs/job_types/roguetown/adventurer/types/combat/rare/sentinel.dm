@@ -3,7 +3,6 @@
 /datum/advclass/sentinel
 	name = "Sentinel"
 	tutorial = "Elvish Sentinels are a specialized group of Rangers known for their mastery of bow and blade alike; their arrows are said to contain poisons from the native trees"
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Elf",
 		"Half-Elf",

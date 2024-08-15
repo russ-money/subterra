@@ -52,9 +52,7 @@
 	var/dynamic_hair_suffix = ""//head > mask for head hair
 	var/dynamic_fhair_suffix = ""//mask > head for facial hair
 	edelay_type = 0
-	var/list/allowed_sex
 	var/list/allowed_race = ALL_RACES_LIST
-	var/immune_to_genderswap = FALSE
 	var/armor_class = ARMOR_CLASS_NONE
 
 	sellprice = 1
@@ -179,27 +177,15 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/list/allowed_sexes = list()
-	if(length(allowed_sex))
-		allowed_sexes |= allowed_sex
 	var/mob/living/carbon/human/H
 	if(ishuman(M))
 		H = M
-		if(!immune_to_genderswap && H.dna?.species?.gender_swapping)
-			if(MALE in allowed_sex)
-				allowed_sexes -= MALE
-				allowed_sexes += FEMALE
-			if(FEMALE in allowed_sex)
-				allowed_sexes -= FEMALE
-				allowed_sexes += MALE
 	if(slot_flags & slotdefine2slotbit(slot))
-		if(!length(allowed_sexes) || (M.gender in allowed_sex))
-			if(length(allowed_race) && H)
-				if(H.dna.species.id in allowed_race)
-					return TRUE
-				return FALSE
-			return TRUE
-		return FALSE
+		if(length(allowed_race) && H)
+			if(H.dna.species.id in allowed_race)
+				return TRUE
+			return FALSE
+		return TRUE
 
 /obj/item/clothing/Initialize()
 	if(CHECK_BITFIELD(clothing_flags, VOICEBOX_TOGGLABLE))

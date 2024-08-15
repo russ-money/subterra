@@ -37,7 +37,6 @@
 
 /datum/species
 	var/list/specstats = list("strength" = 0, "perception" = 0, "intelligence" = 0, "constitution" = 0, "endurance" = 0, "speed" = 0, "fortune" = 0)
-	var/list/specstats_f = list("strength" = 0, "perception" = 0, "intelligence" = 0, "constitution" = 0, "endurance" = 0, "speed" = 0, "fortune" = 0)
 
 /mob/living/proc/roll_stats()
 	STASTR = 10
@@ -59,12 +58,9 @@
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		if(H.dna.species)
-			if(gender == FEMALE)
-				for(var/S in H.dna.species.specstats_f)
-					change_stat(S, H.dna.species.specstats_f[S])
-			else
-				for(var/S in H.dna.species.specstats)
-					change_stat(S, H.dna.species.specstats[S])
+			for(var/S in H.dna.species.specstats)
+				change_stat(S, H.dna.species.specstats[S])
+				
 		switch(H.age)
 			if(AGE_YOUNG)
 				change_stat("strength", -2)

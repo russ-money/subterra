@@ -1,6 +1,5 @@
 /datum/advclass/seamstress
 	name = "Seamstress"
-	allowed_sexes = list(FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",

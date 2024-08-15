@@ -2,7 +2,6 @@
 /datum/advclass/dwarfwarrior
 	name = "Cavern Warrior"
 	tutorial = "Dwarf Warriors are the bread and butter of their miliary sworn to defend their mountain fortress. Armed with either a battle axe or mace, they are a force to be reckoned with."
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list("Dwarf","Dwarf")
 	outfit = /datum/outfit/job/roguetown/adventurer/dwarfwarrior
 

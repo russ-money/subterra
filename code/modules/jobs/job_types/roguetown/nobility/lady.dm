@@ -5,8 +5,6 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-
-	allowed_sexes = list(FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",
