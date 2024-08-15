@@ -3,7 +3,6 @@
 /datum/advclass/rare
 	name = "Rarec"
 	tutorial = "rarec"
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",

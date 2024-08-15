@@ -6,7 +6,6 @@
 	total_positions = 1
 	spawn_positions = 1
 	allowed_patrons = ALL_DIVINE_PATRONS
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",

@@ -185,21 +185,12 @@
 	var/mob/living/carbon/human/H
 	if(ishuman(M))
 		H = M
-		if(!immune_to_genderswap && H.dna?.species?.gender_swapping)
-			if(MALE in allowed_sex)
-				allowed_sexes -= MALE
-				allowed_sexes += FEMALE
-			if(FEMALE in allowed_sex)
-				allowed_sexes -= FEMALE
-				allowed_sexes += MALE
 	if(slot_flags & slotdefine2slotbit(slot))
-		if(!length(allowed_sexes) || (M.gender in allowed_sex))
-			if(length(allowed_race) && H)
-				if(H.dna.species.id in allowed_race)
-					return TRUE
-				return FALSE
-			return TRUE
-		return FALSE
+		if(length(allowed_race) && H)
+			if(H.dna.species.id in allowed_race)
+				return TRUE
+			return FALSE
+		return TRUE
 
 /obj/item/clothing/Initialize()
 	if(CHECK_BITFIELD(clothing_flags, VOICEBOX_TOGGLABLE))

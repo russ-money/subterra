@@ -5,8 +5,6 @@
 	faction = "Station"
 	total_positions = 50 //shitcode solution until overflow roles are fixed
 	spawn_positions = 50
-
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",

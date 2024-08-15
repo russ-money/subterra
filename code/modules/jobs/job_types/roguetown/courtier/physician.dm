@@ -12,7 +12,6 @@
 		"Half-Elf",
 		"Aasimar"
 	)
-	allowed_sexes = list(MALE, FEMALE)
 	display_order = JDO_PHYSICIAN
 	tutorial = "You were a child born into good wealth - But poor health. \
 		Perhaps in another life, you would have turned out to be a powerful mage, wise archivist or a shrewd steward, \

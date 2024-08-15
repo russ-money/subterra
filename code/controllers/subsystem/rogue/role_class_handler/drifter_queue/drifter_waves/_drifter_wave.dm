@@ -17,9 +17,6 @@
 	// Delay before we fire when its our turn to be current wave
 	var/wave_delay_time = 2 MINUTES
 
-	//Restrictions on what is required in order to enter the wave
-	//Make sure to set this up if you need it otherwise you might cuck someone if theres a class selection w requirements.
-	var/list/allowed_sexes
 	// This wave does not allow a swap of gender based on species variables
 	var/immune_to_genderswap = FALSE
 

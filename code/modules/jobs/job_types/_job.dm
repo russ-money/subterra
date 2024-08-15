@@ -66,8 +66,6 @@
 	///Levels unlocked at roundstart in physiology
 	var/list/roundstart_experience
 
-	//allowed sex/race for picking
-	var/list/allowed_sexes
 	var/list/allowed_races
 	var/list/allowed_patrons
 	var/list/allowed_ages = ADULT_AGES_LIST

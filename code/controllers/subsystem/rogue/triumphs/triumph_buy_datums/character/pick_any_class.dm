@@ -30,7 +30,6 @@
 /datum/advclass/pick_everything
 	name = "Pick-Classes"
 	tutorial = "This will open up another menu when you spawn allowing you to pick from any class as long as its not disabled."
-	allowed_sexes = list("male", "female")
 	allowed_races = list(
 	"Humen",
 	"Elf",

@@ -3,7 +3,6 @@
 /datum/advclass/dona
 	name = "Rarec"
 	tutorial = "rarec"
-	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = list(
 		"Humen",
 		"Elf",

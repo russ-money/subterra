@@ -107,22 +107,6 @@
 	if(length(current_wave.allowed_patrons) && !(target_client.prefs.selected_patron.type in current_wave.allowed_patrons))
 		to_chat(target_client, span_warning(" WRONG PATRON "))
 		return FALSE
-
-	var/list/local_allowed_sexes = list()
-	if(length(current_wave.allowed_sexes))
-		local_allowed_sexes |= current_wave.allowed_sexes
-	if(!current_wave.immune_to_genderswap && target_client.prefs.pref_species.gender_swapping)
-		if(MALE in current_wave.allowed_sexes)
-			local_allowed_sexes -= MALE
-			local_allowed_sexes += FEMALE
-		if(FEMALE in current_wave.allowed_sexes)
-			local_allowed_sexes -= FEMALE
-			local_allowed_sexes += MALE
-	if(length(local_allowed_sexes) && !(target_client.prefs.gender in local_allowed_sexes))
-		return JOB_UNAVAILABLE_SEX
-	if(length(current_wave.allowed_sexes) && !(target_client.prefs.gender in current_wave.allowed_sexes))
-		to_chat(target_client, span_warning(" WRONG GENDER "))
-		return FALSE
 	if(length(current_wave.allowed_ages) && !(target_client.prefs.age in current_wave.allowed_ages))
 		to_chat(target_client, span_warning(" WRONG AGEGROUP "))
 		return FALSE
