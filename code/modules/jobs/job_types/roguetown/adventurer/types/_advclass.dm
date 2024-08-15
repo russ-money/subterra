@@ -15,9 +15,6 @@
 	var/list/traits_applied
 	var/cmode_music
 
-	/// This class is immune to species-based swapped gender locks
-	var/immune_to_genderswap = FALSE
-
 	//What categories we are going to sort it in
 	var/list/category_tags = list(CTAG_DISABLED)
 
@@ -63,8 +60,6 @@
 	On the datum! Wow!
 */
 /datum/advclass/proc/check_requirements(mob/living/carbon/human/H)
-
-	var/datum/species/pref_species = H.dna.species
 
 	if(length(allowed_races) && !(H.dna.species.name in allowed_races))
 		return FALSE

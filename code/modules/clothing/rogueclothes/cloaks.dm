@@ -504,7 +504,6 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
-//	allowed_sex = list("male")
 	allowed_race = list("humen", "tiefling", "argonian", "elfd", "elfw", "helf", "aasimar", "halforc")
 	detail_tag = "_det"
 	detail_color = CLOTHING_PURPLE
@@ -789,7 +788,6 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	slot_flags = ITEM_SLOT_CLOAK
-	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar", "halforc")
 	nodismemsleeves = TRUE
 
@@ -816,7 +814,6 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	slot_flags = ITEM_SLOT_CLOAK
-	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar", "halforc")
 	sellprice = 50
 	nodismemsleeves = TRUE
@@ -829,7 +826,6 @@
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleevetype = "shirt"
 	slot_flags = ITEM_SLOT_CLOAK
-	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar", "halforc", "goblinp")
 	sellprice = 50
 	nodismemsleeves = TRUE
@@ -850,7 +846,6 @@
 	hoodtype = null
 	toggle_icon_state = FALSE
 	color = CLOTHING_BLACK
-	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("humen", "tiefling", "argonian", "elfd", "elfw", "helf", "aasimar", "halforc")
 
 /obj/item/clothing/cloak/half/brown
@@ -866,7 +861,6 @@
 	name = "town watch cloak"
 	icon_state = "guardcloak"
 	color = CLOTHING_RED
-	allowed_sex = list(MALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar", "halforc")
 	inhand_mod = FALSE
 

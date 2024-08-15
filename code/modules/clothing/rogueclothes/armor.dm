@@ -74,7 +74,6 @@
 	desc = ""
 	icon_state = "chainkini"
 	item_state = "chainkini"
-	allowed_sex = list(FEMALE)
 	allowed_race = ALL_RACES_LIST
 	body_parts_covered = CHEST|GROIN
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -91,7 +90,6 @@
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	nodismemsleeves = TRUE
 	max_integrity = 500
-	allowed_sex = list(MALE, FEMALE)
 	var/do_sound = TRUE
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
@@ -141,7 +139,6 @@
 	name = "scalemail"
 	desc = "Metal scales interwoven intricately to form flexible protection!"
 	body_parts_covered = CHEST|VITALS|GROIN|LEGS
-	allowed_sex = list(MALE, FEMALE)
 	icon_state = "lamellar"
 	max_integrity = 200
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -158,7 +155,6 @@
 	item_state = "heartfelt"
 	armor = list("blunt" = 90, "slash" = 90, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
-	allowed_sex = list(MALE)
 	nodismemsleeves = TRUE
 	blocking_behavior = null
 	max_integrity = 400
@@ -175,7 +171,6 @@
 	item_state = "heartfelt_hand"
 	armor = list("blunt" = 90, "slash" = 90, "stab" = 80, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
-	allowed_sex = list(MALE)
 	nodismemsleeves = TRUE
 	blocking_behavior = null
 	max_integrity = 400
@@ -192,7 +187,6 @@
 	body_parts_covered = CHEST|GROIN|VITALS|LEGS|ARMS
 	armor = list("blunt" = 90, "slash" = 60, "stab" = 70, "bullet" = 100, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
-	allowed_sex = list(MALE, FEMALE)
 	nodismemsleeves = TRUE
 	max_integrity = 350
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -255,7 +249,6 @@
 	armor = list("blunt" = 60, "slash" = 40, "stab" = 50, "bullet" = 10, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT)
 	blocksound = SOFTHIT
-	allowed_sex = list("female")
 	allowed_race = list("humen", "tiefling", "argonian", "elfd", "elfw", "helf", "aasimar", "halforc")
 	blade_dulling = DULLING_BASHCHOP
 	break_sound = 'sound/foley/cloth_rip.ogg'
@@ -291,7 +284,6 @@
 /obj/item/clothing/suit/roguetown/armor/gambeson/lord
 	name = "arming jacket"
 	icon_state = "dgamb"
-	allowed_sex = list(MALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar")
 
 /obj/item/clothing/suit/roguetown/armor/leather
@@ -383,7 +375,6 @@
 	desc = "A soft and comfortable jacket."
 	icon_state = "nightman"
 	sleeved = 'icons/roguetown/clothing/onmob/armor.dmi'
-	allowed_sex = list(MALE)
 	allowed_race = list("humen", "tiefling", "argonian", "aasimar")
 
 
@@ -392,7 +383,6 @@
 	desc = "A soft vest of finest fabric."
 	icon_state = "handcoat"
 	color = null
-	allowed_sex = list(MALE, FEMALE)
 	allowed_race = list("humen", "tiefling", "argonian", "dwarfm", "elfd", "elfw", "helf", "aasimar")
 
 /obj/item/clothing/suit/roguetown/armor/leather/vest/black
@@ -437,7 +427,6 @@
 	max_integrity = 100
 	sellprice = 50
 	armor_class = ARMOR_CLASS_LIGHT
-	allowed_sex = list(FEMALE)
 	allowed_race = list("humen", "tiefling", "dwarfm","argonian", "elfd", "elfw", "helf", "aasimar")
 	
 /obj/item/clothing/suit/roguetown/armor/silkcoat/Initialize()

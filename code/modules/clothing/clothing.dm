@@ -52,9 +52,7 @@
 	var/dynamic_hair_suffix = ""//head > mask for head hair
 	var/dynamic_fhair_suffix = ""//mask > head for facial hair
 	edelay_type = 0
-	var/list/allowed_sex
 	var/list/allowed_race = ALL_RACES_LIST
-	var/immune_to_genderswap = FALSE
 	var/armor_class = ARMOR_CLASS_NONE
 
 	sellprice = 1
@@ -179,9 +177,6 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	var/list/allowed_sexes = list()
-	if(length(allowed_sex))
-		allowed_sexes |= allowed_sex
 	var/mob/living/carbon/human/H
 	if(ishuman(M))
 		H = M

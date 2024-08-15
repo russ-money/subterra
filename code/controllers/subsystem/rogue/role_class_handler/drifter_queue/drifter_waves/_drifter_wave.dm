@@ -17,9 +17,6 @@
 	// Delay before we fire when its our turn to be current wave
 	var/wave_delay_time = 2 MINUTES
 
-	// This wave does not allow a swap of gender based on species variables
-	var/immune_to_genderswap = FALSE
-
 	var/list/allowed_races
 	var/list/allowed_patrons
 	var/list/allowed_ages = ADULT_AGES_LIST
