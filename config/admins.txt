@@ -12,3 +12,4 @@ xensky = Game Admin
 Camahoo = Game Admin
 Lightrail = Game Admin
 Skeeyui = Game Admin
+SushiFIsh100 = Game Admin
