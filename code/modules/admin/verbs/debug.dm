@@ -40,6 +40,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 /client/proc/cmd_admin_robotize(mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Robot"
+	set hidden = 1
 
 	if(!SSticker.HasRoundStarted())
 		alert("Wait until the game starts")
@@ -55,6 +56,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 /client/proc/cmd_admin_blobize(mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Blob"
+	set hidden = 1
 
 	if(!SSticker.HasRoundStarted())
 		alert("Wait until the game starts")
@@ -70,6 +72,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 /client/proc/cmd_admin_animalize(mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Simple Animal"
+	set hidden = 1
 
 	if(!SSticker.HasRoundStarted())
 		alert("Wait until the game starts")
@@ -91,6 +94,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 	set category = "Fun"
 	set name = "Make pAI"
 	set desc = ""
+	set hidden = 1
 
 	var/list/available = list()
 	for(var/mob/C in GLOB.mob_list)
@@ -123,6 +127,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 /client/proc/cmd_admin_alienize(mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Alien"
+	set hidden = 1
 
 	if(!SSticker.HasRoundStarted())
 		alert("Wait until the game starts")
@@ -138,6 +143,7 @@ But you can call procs that are of type /mob/living/carbon/human/proc/ for that 
 /client/proc/cmd_admin_slimeize(mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make slime"
+	set hidden = 1
 
 	if(!SSticker.HasRoundStarted())
 		alert("Wait until the game starts")

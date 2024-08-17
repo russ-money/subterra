@@ -14,7 +14,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////Panels
 
 /datum/admins/proc/show_player_panel(mob/M in GLOB.mob_list)
-	set category = "GameMaster"
+	set category = "Admin"
 	set name = "Show Player Panel"
 	set desc="Edit player (respawn, ban, heal, etc)"
 
@@ -195,7 +195,7 @@
 /datum/admins/proc/admin_heal(mob/living/M in GLOB.mob_list)
 	set name = "Heal Mob"
 	set desc = "Heal a mob to full health"
-	set category = "GameMaster"
+	set category = "Admin"
 
 	if(!check_rights())
 		return
@@ -207,7 +207,7 @@
 /datum/admins/proc/admin_revive(mob/living/M in GLOB.mob_list)
 	set name = "Revive Mob"
 	set desc = "Resuscitate a mob"
-	set category = "GameMaster"
+	set category = "Admin"
 
 	if(!check_rights())
 		return
@@ -233,7 +233,7 @@
 /datum/admins/proc/admin_sleep(mob/living/M in GLOB.mob_list)
 	set name = "Toggle Sleeping"
 	set desc = "Toggle a mob's sleeping state"
-	set category = "GameMaster"
+	set category = "Admin"
 
 	if(!check_rights())
 		return
@@ -298,6 +298,7 @@
 	set category = "Fun"
 	set name = "Access Newscaster Network"
 	set desc = ""
+	set hidden = 1
 
 	if (!istype(src, /datum/admins))
 		src = usr.client.holder
@@ -599,7 +600,7 @@
 
 
 /datum/admins/proc/announce()
-	set category = "Special Verbs"
+	set category = "Admin"
 	set name = "Announce"
 	set desc="Announce your desires to the world"
 	if(!check_rights(0))
@@ -614,7 +615,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Announce") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/set_admin_notice()
-	set category = "Special Verbs"
+	set category = "Admin"
 	set name = "Set Admin Notice"
 	set desc ="Set an announcement that appears to everyone who joins the server. Only lasts this round"
 	if(!check_rights(0))
