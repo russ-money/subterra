@@ -157,7 +157,7 @@
 // Debug verb
 /mob/living/carbon/human/proc/devotionchange()
 	set name = "(DEBUG)Change Devotion"
-	set category = "Special Verbs"
+	set category = "Debug"
 
 	if(!devotion)
 		return FALSE

@@ -552,7 +552,7 @@ GLOBAL_VAR_INIT(mobids, 1)
   * This actually gets the mind datums notes
   */
 /mob/verb/memory()
-	set name = "Notes"
+	set name = "Memories"
 	set category = "Memory"
 	set desc = ""
 	if(mind)
@@ -564,8 +564,9 @@ GLOBAL_VAR_INIT(mobids, 1)
   * Add a note to the mind datum
   */
 /mob/verb/add_memory(msg as message)
-	set name = "AddNote"
+	set name = "New Memory"
 	set category = "Memory"
+	
 	if(mind)
 		if (world.time < memory_throttle_time)
 			return
@@ -586,7 +587,7 @@ GLOBAL_VAR_INIT(mobids, 1)
   */
 /mob/verb/abandon_mob()
 	set name = "{RETURN TO LOBBY}"
-	set category = "Options"
+	set category = "OOC"
 	set hidden = 1
 	if(!check_rights(0))
 		return

@@ -40,7 +40,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Play Global Sound") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/change_music_vol()
-	set category = "Options"
+	set category = "OOC"
 	set name = "ChangeMusicPower"
 
 	if(prefs)
@@ -67,7 +67,7 @@
 
 
 /client/verb/show_rolls()
-	set category = "Options"
+	set category = "OOC"
 	set name = "ShowRolls"
 
 	if(prefs)
@@ -79,7 +79,7 @@
 			to_chat(src, "ShowRolls Disabled")
 
 /client/verb/change_master_vol()
-	set category = "Options"
+	set category = "OOC"
 	set name = "ChangeVolPower"
 
 	if(prefs)
@@ -92,19 +92,6 @@
 		prefs.save_preferences()
 
 		mob.update_channel_volume(CHANNEL_AMBIENCE, prefs.mastervol)
-/*
-/client/verb/help_rpguide()
-	set category = "Options"
-	set name = "zHelp-RPGuide"
-
-	src << link("https://cdn.discordapp.com/attachments/844865105040506891/938971395445112922/rpguide.jpg")
-
-/client/verb/help_uihelp()
-	set category = "Options"
-	set name = "zHelp-UIGuide"
-
-	src << link("https://cdn.discordapp.com/attachments/844865105040506891/938275090414579762/unknown.png")
-*/
 
 /client/proc/play_local_sound(S as sound)
 	set category = "Fun"

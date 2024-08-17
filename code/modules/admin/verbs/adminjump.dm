@@ -1,7 +1,7 @@
 /client/proc/jumptoarea(area/A in GLOB.sortedAreas)
 	set name = "Jump to Area"
 	set desc = ""
-	set category = "GameMaster"
+	set category = "Admin"
 	if(!src.holder)
 //		//to_chat(src, "Only administrators may use this command.")
 		return
@@ -38,7 +38,7 @@
 	return
 
 /client/proc/jumptomob(mob/M in GLOB.mob_list)
-	set category = "GameMaster"
+	set category = "Admin"
 	set name = "Jump to Mob"
 
 	if(!src.holder)
@@ -72,7 +72,7 @@
 	message_admins("[key_name_admin(usr)] jumped to coordinates [tx], [ty], [tz]")
 
 /client/proc/jumptokey()
-	set category = "GameMaster"
+	set category = "Admin"
 	set name = "Jump to Key"
 
 	if(!src.holder)

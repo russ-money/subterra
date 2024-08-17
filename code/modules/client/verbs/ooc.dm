@@ -302,12 +302,12 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 /*
 /client/verb/jcoindate()
 	set name = "{CHECKJOINDATE}"
-	set category = "Options"
+	set category = "OOC"
 	testing("[CheckJoinDate(ckey)]")
 */
 /mob/dead/new_player/verb/togglobb()
 	set name = "SilenceLobbyMusic"
-	set category = "Options"
+	set category = "OOC"
 	stop_sound_channel(CHANNEL_LOBBYMUSIC)
 
 /proc/CheckJoinDate(ckey)
@@ -353,7 +353,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/fix_chat()
 	set name = "{FIX CHAT}"
-	set category = "Options"
+	set category = "OOC"
 	set hidden = 1
 	if(!check_rights(0))
 		return
@@ -493,7 +493,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/select_ignore()
 	set name = "Ignore"
-	set category = "Options"
+	set category = "OOC"
 	set desc ="Ignore a player's messages on the OOC channel"
 	set hidden = 1
 	if(!holder)
@@ -531,7 +531,7 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 
 /client/verb/fit_viewport()
 	set name = "Fit Viewport"
-	set category = "Options"
+	set category = "OOC"
 	set desc = ""
 	set hidden = 1
 	if(!holder)

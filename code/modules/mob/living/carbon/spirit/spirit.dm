@@ -120,7 +120,7 @@
 
 /mob/living/carbon/spirit/returntolobby()
 	set name = "{RETURN TO LOBBY}"
-	set category = "Options"
+	set category = "OOC"
 	set hidden = 1
 
 	if(key)
