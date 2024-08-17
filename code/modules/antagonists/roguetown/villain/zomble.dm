@@ -34,7 +34,6 @@
 		TRAIT_NOPAIN,
 		TRAIT_NOPAINSTUN,
 		TRAIT_NOBREATH,
-		TRAIT_NOBREATH,
 		TRAIT_TOXIMMUNE,
 		TRAIT_CHUNKYFINGERS,
 		TRAIT_NOSLEEP,
@@ -44,7 +43,7 @@
 		TRAIT_LIMPDICK,
 		TRAIT_ZOMBIE_SPEECH,
 		TRAIT_ZOMBIE_IMMUNE,
-		TRAIT_EMOTEMUTE,
+		//TRAIT_EMOTEMUTE,
 		TRAIT_ROTMAN,
 		TRAIT_NORUN
 	)
@@ -187,34 +186,24 @@
 			zombie_part.rotted = TRUE
 		zombie_part.update_disabled()
 	zombie.update_body()
-	zombie.cmode_music = 'sound/music/combat_weird.ogg'
+	zombie.cmode_music = 'sound/music/combat_zombie.ogg'
 	zombie.set_patron(/datum/patron/inhumen/zizo)
 
-	// Outside of one 2% chance remaining for zombie era strength
-	if(prob(2))
-		zombie.STASTR = 18
-
-	// This is the original first commit values for it, aka 5-7
-	zombie.STASPD = rand(5,7)
-
+	// We will adjust thier stats so they're a bit stronger 
+	zombie.STASTR += rand(6,10)
+	if(zombie.STASTR >= 20)
+		zombie.STASTR = 20
+	zombie.STACON += rand(6,10)
+	if(zombie.STACON >= 20)
+		zombie.STACON = 20
+	zombie.STASPD = rand(3,6)
 	zombie.STAINT = 1
+	
 	last_bite = world.time
 	has_turned = TRUE
-	// Drop your helm and gorgies boy you won't need it anymore!!!
-	var/static/list/removed_slots = list(
-		SLOT_HEAD,
-		SLOT_WEAR_MASK,
-		SLOT_MOUTH,
-		SLOT_NECK,
-	)
-	for(var/slot in removed_slots)
-		zombie.dropItemToGround(zombie.get_item_by_slot(slot), TRUE)
-
-	// Ghosts you because this shit was just not working whatsoever, let the AI handle the rest
-	zombie.ghostize(FALSE)
 
 /datum/antagonist/zombie/greet()
-	to_chat(owner.current, span_userdanger("Death is not the end..."))
+	to_chat(owner.current, span_userdanger("Death is not the end... We must spread..."))
 	return ..()
 
 /datum/antagonist/zombie/on_life(mob/user)
@@ -301,7 +290,7 @@
 	if(!closest_dist)
 		to_chat(src, span_warning("I failed to smell anything..."))
 		return FALSE
-	to_chat(src, span_warning("[closest_dist] meters away, [dir2text(the_dir)]..."))
+	to_chat(src, span_warning("I smell something... [closest_dist] meters away, [dir2text(the_dir)]..."))
 	return TRUE
 
 /// Use this to attempt to add the zombie antag datum to a human
@@ -334,7 +323,9 @@
 	to_chat(src, span_danger("I feel horrible... REALLY horrible..."))
 	mob_timers["puke"] = world.time
 	vomit(1, blood = TRUE, stun = FALSE)
-	addtimer(CALLBACK(src, PROC_REF(wake_zombie)), 1 MINUTES)
+	src.playsound_local(get_turf(src), 'sound/music/horror.ogg', 35, FALSE, pressure_affected = FALSE, channel = CHANNEL_MUSIC)
+	vomit(blood = TRUE, stun = FALSE)
+	addtimer(CALLBACK(src, PROC_REF(wake_zombie)), 125 SECONDS)
 	return zombie_antag
 
 /mob/living/carbon/human/proc/wake_zombie()
@@ -342,8 +333,8 @@
 	if(!zombie_antag || zombie_antag.has_turned)
 		return FALSE
 	flash_fullscreen("redflash3")
-	to_chat(src, span_danger("It hurts... Is this really the end for me?"))
-	emote("scream") // heres your warning to others bro
+	to_chat(src, span_danger("ZIZO! I NEED TO DIG MY TEETH INTO FLESH!"))
+	emote("rage")
 	Knockdown(1)
 	zombie_antag.wake_zombie(TRUE)
 	return TRUE
