@@ -2,7 +2,7 @@
 	var/list/played_loops = list() //uses dlink to link to the sound
 
 
-/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, soundping = FALSE, repeat = FALSE)
+/proc/playsound(atom/source, soundin, vol as num, vary, extrarange as num, falloff, frequency = null, channel, pressure_affected = FALSE, ignore_walls = TRUE, soundping = FALSE, repeat)
 	if(isarea(source))
 		CRASH("playsound(): source is an area")
 
