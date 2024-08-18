@@ -406,16 +406,21 @@ Works together with spawning an observer, noted above.
 	return ghost
 
 /mob/living/carbon/human/ghostize(can_reenter_corpse = 1, force_respawn = FALSE, drawskip = FALSE, admin = FALSE)
-	if(mind)
-		var/datum/antagonist/zombie/zomble = mind.has_antag_datum(/datum/antagonist/zombie)
-		if(zomble)
-			if(force_respawn)
-				mind.remove_antag_datum(/datum/antagonist/zombie)
-				return ..()
-			else if(!zomble.revived)
-				if(!(world.time % 5))
-					to_chat(src, span_warning("I'm preparing to walk again."))
-				return
+	if(mind) // check if we're a player
+		var/playercount = 0 // setup a var
+		for(var/client/C in GLOB.clients) //for every client in the game add one to the var
+			playercount++
+		if(playercount >= 50) // check the var to see if it's more than 50, if not just ghost the player
+			// turn us into a deadite flesh eater
+			var/datum/antagonist/zombie/zomble = mind.has_antag_datum(/datum/antagonist/zombie)
+			if(zomble)
+				if(force_respawn)
+					mind.remove_antag_datum(/datum/antagonist/zombie)
+					return ..()
+				else if(!zomble.revived)
+					if(!(world.time % 5))
+						to_chat(src, span_warning("I'm preparing to walk again..."))
+					return
 	return ..()
 
 /mob/proc/scry_ghost()
