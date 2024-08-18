@@ -100,7 +100,7 @@
 
 /atom/movable/screen/ghost/moveup
 	name = "move up"
-	icon_state = "pai"
+	icon_state = "moveup"
 
 /atom/movable/screen/ghost/moveup/Click()
 	var/mob/dead/observer/G = usr
@@ -108,7 +108,7 @@
 
 /atom/movable/screen/ghost/movedown
 	name = "move down"
-	icon_state = "pai"
+	icon_state = "movedown"
 
 /atom/movable/screen/ghost/bigassuselessbutton
 	name = "AFTER LIFE"
