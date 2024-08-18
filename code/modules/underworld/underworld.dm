@@ -97,7 +97,7 @@ GLOBAL_VAR_INIT(underworld_coins, 0)
 	desc = "This is more than just a coin."
 	icon = 'icons/roguetown/underworld/enigma_husks.dmi'
 	icon_state = "soultoken_floor"
-	var/angle = 0 // To keep track of the current angle
+	var/angle = 0 
 	var/should_track = TRUE
 
 /obj/item/underworld/coin/Initialize()
@@ -125,6 +125,7 @@ GLOBAL_VAR_INIT(underworld_coins, 0)
 	if(should_track)
 		GLOB.underworld_coins += 1
 	icon_state = "soultoken_floor"
+	angle = 0 // Resets the angle as the sprite always starts pointing up.
 	STOP_PROCESSING(SSobj, src)
 
 /obj/item/underworld/coin/notracking
