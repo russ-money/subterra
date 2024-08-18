@@ -503,6 +503,22 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	prefs.asaycolor = initial(prefs.asaycolor)
 	prefs.save_preferences()
 
+/client/proc/hearallasghost()
+	set category = "Prefs - Admin"
+	set name = "Toggle Admin Hear All"
+	if(!holder)
+		return
+	if(!prefs)
+		return
+	prefs.chat_toggles ^= CHAT_GHOSTEARS
+//	prefs.chat_toggles ^= CHAT_GHOSTSIGHT
+	prefs.chat_toggles ^= CHAT_GHOSTWHISPER
+	prefs.save_preferences()
+	if(prefs.chat_toggles & CHAT_GHOSTEARS)
+		to_chat(src, span_notice("I will hear all now."))
+	else
+		to_chat(src, span_info("I will hear like a mortal."))
+
 /client/proc/aghosthidechar()
 	set category = "Prefs - Admin"
 	set name = "Show/Hide Character on Aghost"
