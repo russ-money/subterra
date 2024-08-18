@@ -502,3 +502,14 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		return
 	prefs.asaycolor = initial(prefs.asaycolor)
 	prefs.save_preferences()
+
+/client/proc/aghosthidechar()
+	set category = "Prefs - Admin"
+	set name = "Show/Hide Character on Aghost"
+	if(!holder)
+		return
+	if(!prefs)
+		return
+	prefs.toggles ^= AGHOST_HIDE_CHAR
+	prefs.save_preferences()
+	to_chat(src, span_notice("Aghosting will [(prefs.toggles & AGHOST_HIDE_CHAR) ? "now" : "no longer"] hide your character."))
