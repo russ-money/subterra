@@ -167,6 +167,8 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 
 
 //Misc mobs
+#define isrogueghost(A) (istype(A,/mob/dead/observer/rogue))
+
 #define isobserver(A) (istype(A, /mob/dead/observer))
 
 #define isdead(A) (istype(A, /mob/dead))

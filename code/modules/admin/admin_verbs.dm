@@ -104,7 +104,8 @@ GLOBAL_PROTECT(admin_verbs_admin)
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/client/proc/discord_id_manipulation,
-	/datum/admins/proc/open_borgopanel
+	/datum/admins/proc/open_borgopanel,
+	/client/proc/aghosthidechar
 	)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel, /client/proc/check_pq, /client/proc/adjust_pq, /client/proc/getcurrentlogs, /client/proc/getserverlogs))
 GLOBAL_PROTECT(admin_verbs_ban)
@@ -375,6 +376,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 	. = TRUE
 	if(isobserver(mob))
+		if(isrogueghost(mob)) // mob/dead/observer/rogue are a lot more limited than 'normal' ghosts
+			mob.ghostize(FALSE, admin = TRUE) 
+			return
 		//re-enter
 		var/mob/dead/observer/ghost = mob
 		if(!ghost.mind || !ghost.mind.current) //won't do anything if there is no body
@@ -408,8 +412,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		log_admin("[key_name(usr)] admin ghosted.")
 		message_admins("[key_name_admin(usr)] admin ghosted.")
 		var/mob/body = mob
-		body.invisibility = INVISIBILITY_MAXIMUM
-		body.density = 0
+		if(prefs.toggles & AGHOST_HIDE_CHAR)
+			body.invisibility = INVISIBILITY_MAXIMUM
+			body.density = 0
 		body.ghostize(TRUE, admin = TRUE)
 		if(body && !body.key)
 			body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus

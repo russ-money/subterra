@@ -697,22 +697,6 @@
 		eyet.update_icon(src)
 	playsound_local(src, 'sound/misc/click.ogg', 100)
 
-/client/proc/hearallasghost()
-	set category = "Admin"
-	set name = "HearAllAsAdmin"
-	if(!holder)
-		return
-	if(!prefs)
-		return
-	prefs.chat_toggles ^= CHAT_GHOSTEARS
-//	prefs.chat_toggles ^= CHAT_GHOSTSIGHT
-	prefs.chat_toggles ^= CHAT_GHOSTWHISPER
-	prefs.save_preferences()
-	if(prefs.chat_toggles & CHAT_GHOSTEARS)
-		to_chat(src, span_notice("I will hear all now."))
-	else
-		to_chat(src, span_info("I will hear like a mortal."))
-
 ///Moves a mob upwards in z level
 /mob/proc/ghost_up()
 	if(zMove(UP, TRUE))

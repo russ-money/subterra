@@ -56,7 +56,7 @@
 /client/verb/mentorhelp()
 	set name = "Mentorhelp"
 	set desc = ""
-	set category = "Admin"
+	set category = "OOC"
 	if(mob)
 		var/msg = input("Say your meditation:", "Voices in your head") as text|null
 		if(msg)

@@ -601,3 +601,14 @@ GLOBAL_VAR_INIT(normal_ooc_colour, "#002eb8")
 		policytext += "No related rules found."
 
 	usr << browse(policytext.Join(""),"window=policy")
+
+/mob/dead/new_player/verb/latejoin()
+	set name = "Late join"
+	set desc = ""
+	set category = "OOC"
+
+	if(!SSticker?.IsRoundInProgress())
+		to_chat(usr, span_boldwarning("The game is starting. You cannot join yet."))
+		return
+
+	LateChoices()
