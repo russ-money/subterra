@@ -376,6 +376,9 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 	. = TRUE
 	if(isobserver(mob))
+		if(isrogueghost(mob)) // mob/dead/observer/rogue are a lot more limited than 'normal' ghosts
+			mob.ghostize(FALSE, admin = TRUE) 
+			return
 		//re-enter
 		var/mob/dead/observer/ghost = mob
 		if(!ghost.mind || !ghost.mind.current) //won't do anything if there is no body
