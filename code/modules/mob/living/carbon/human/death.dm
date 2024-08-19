@@ -45,13 +45,6 @@
 				dust(just_ash=TRUE,drop_items=TRUE)
 				return
 
-	if(!gibbed)
-		var/datum/antagonist/zombie/zomble = mind?.has_antag_datum(/datum/antagonist/zombie)
-		if(zomble)
-			addtimer(CALLBACK(zomble, TYPE_PROC_REF(/datum/antagonist/zombie, wake_zombie)), 5 SECONDS)
-		else if(can_death_zombify())
-			zombie_check()
-
 	if(client || mind)
 		SSticker.deaths++
 
