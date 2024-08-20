@@ -73,3 +73,8 @@
 	name = "Proesthetic Arm (R)"
 	cost = 40
 	contains = list(/obj/item/bodypart/r_arm/rproesthetic)
+
+/datum/supply_pack/rogue/tools/lockpicks
+	name = "Lockpicks"
+	cost = 20
+	contains = /obj/item/lockpickring/mundane

@@ -103,6 +103,18 @@
 	created_item = list(/obj/item/customblank, /obj/item/customblank, /obj/item/customblank, /obj/item/customblank, /obj/item/customblank)
 	i_type = "General"
 
+/datum/anvil_recipe/tools/lockpicks
+	name = "Lockpicks x3"
+	req_bar = /obj/item/ingot/iron
+	created_item = list(/obj/item/lockpick, /obj/item/lockpick, /obj/item/lockpick)
+	i_type = "General"
+
+/datum/anvil_recipe/tools/lockpickring
+	name = "Lockpickrings x3"
+	req_bar = /obj/item/ingot/iron
+	created_item = list(/obj/item/lockpickring, /obj/item/lockpickring, /obj/item/lockpickring)
+	i_type = "General"
+
 /datum/anvil_recipe/tools/thresher
 	name = "Thresher (+1 Stick)"
 	req_bar = /obj/item/ingot/iron
