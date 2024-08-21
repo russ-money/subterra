@@ -23,6 +23,7 @@
 	armor = /obj/item/clothing/suit/roguetown/armor/leather/vest/black
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/random
 	backr = /obj/item/storage/backpack/rogue/satchel
+	backpack_contents = list(/obj/item/lockpick = 1)
 	belt = /obj/item/storage/belt/rogue/leather
 	backpack_contents = list(/obj/item/bait = 1)
 	gloves = /obj/item/clothing/gloves/roguetown/fingerless
@@ -45,6 +46,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 2, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 2, TRUE)
 		H.change_stat("strength", 1)
 		H.change_stat("perception", 1)
 		H.change_stat("intelligence", 1)

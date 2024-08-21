@@ -32,6 +32,7 @@
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 6, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 6, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/lockpicking, 5, TRUE)
 	H.change_stat("strength", 5)
 	H.change_stat("endurance", 6)
 	H.change_stat("constitution", 6)
