@@ -35,7 +35,13 @@ SUBSYSTEM_DEF(treasury)
 
 
 /datum/controller/subsystem/treasury/Initialize()
-	treasury_value = rand(800,1500)
+	var/playercount = 0 // setup a var to get the total player number
+	var/treasury_player_value = 15 // How much each person is worth.
+	for(var/client/C in GLOB.clients) // for every player add 1 to playercount
+		playercount++
+	treasury_value = round(rand((playercount * (treasury_player_value * 0.5)),(playercount * treasury_player_value))) // Based on 100 players having a 750 low, 1500 high.
+	if (treasury_value <= 99)
+		treasury_value = 100 - rand(1,9) // a floor of 100 with a few missing
 	queens_tax = pick(0.09, 0.15, 0.21, 0.30)
 
 	for(var/path in subtypesof(/datum/roguestock/bounty))
@@ -85,7 +91,7 @@ SUBSYSTEM_DEF(treasury)
 					send_ooc_note("Income from wealth horde: +[amt_to_generate]", name = X.real_name)
 					if(people_told > 3)
 						return
-			
+
 
 /datum/controller/subsystem/treasury/proc/create_bank_account(name, initial_deposit)
 	if(!name)
