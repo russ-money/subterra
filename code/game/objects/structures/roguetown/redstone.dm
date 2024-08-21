@@ -90,6 +90,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 	desc = ""
 	base_state = ""
 	icon_state = ""
+	redstone_id = "gatelava"
 	var/changing_state = FALSE
 	var/delay2open = 0
 	var/delay2close = 0
