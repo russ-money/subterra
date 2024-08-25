@@ -65,6 +65,7 @@
 						to_chat(src, span_warning("I'll fall asleep soon..."))
 					fallingas++
 					if(fallingas > 15)
+						tiredness = tiredness - 45 // Sleeping on a bed gives you about 5.5 hours
 						Sleeping(300)
 				else
 					rogstam_add(buckled.sleepy * 10)
@@ -75,12 +76,13 @@
 						to_chat(src, span_warning("I'll fall asleep soon, although a bed would be more comfortable..."))
 					fallingas++
 					if(fallingas > 25)
+						tiredness = tiredness - 25 // Sleeping without gives you about 2.5
 						Sleeping(300)
 				else
 					rogstam_add(10)
 			else if(fallingas)
 				fallingas = 0
-			tiredness = min(tiredness + 1, 100)
+			tiredness = min(tiredness + 0.33, 100)
 
 		handle_brain_damage()
 
