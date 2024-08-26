@@ -21,7 +21,7 @@
 	resistance_flags = FLAMMABLE
 	can_parry = TRUE
 	wdefense = 15
-	var/coverage = 90
+	var/coverage = 60
 	parrysound = "parrywood"
 	attacked_sound = "parrywood"
 	max_integrity = 150

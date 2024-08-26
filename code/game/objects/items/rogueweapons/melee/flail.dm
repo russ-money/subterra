@@ -17,7 +17,7 @@
 	swingsound = BLUNTWOOSH_MED
 	throwforce = 5
 	wdefense = 0
-	minstr = 4
+	minstr = 5
 
 /datum/intent/flail/strike
 	name = "strike"
@@ -25,7 +25,7 @@
 	attack_verb = list("strikes", "hits")
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
 	chargetime = 0
-	penfactor = 5
+	penfactor = 4
 	icon_state = "instrike"
 	item_d_type = "slash"
 
@@ -34,18 +34,18 @@
 	blade_class = BCLASS_BLUNT
 	attack_verb = list("strikes", "hits")
 	hitsound = list('sound/combat/hits/blunt/flailhit.ogg')
-	chargetime = 5
+	chargetime = 6
 	recovery = 15
-	penfactor = 5
+	penfactor = 4
 	reach = 2
 	icon_state = "instrike"
 	item_d_type = "slash"
 
 /datum/intent/flail/strike/smash
 	name = "smash"
-	chargetime = 5
+	chargetime = 6
 	no_early_release = TRUE
-	penfactor = 80
+	penfactor = 50
 	recovery = 10
 	damfactor = 1.5
 	chargedloop = /datum/looping_sound/flailswing
@@ -84,7 +84,7 @@
 
 
 /obj/item/rogueweapon/flail/sflail
-	force = 30
+	force = 25
 	icon_state = "flail"
 	desc = "This is a swift, steel flail. Strikes hard and far."
 	smeltresult = /obj/item/ingot/steel
