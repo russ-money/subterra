@@ -87,4 +87,6 @@
 				used = 'sound/vo/attn.ogg'
 			if("psst")
 				used = 'sound/vo/psst.ogg'
+			if("fart")
+				used = pick('sound/vo/vart (1).ogg', 'sound/vo/vart (2).ogg', 'sound/vo/vart (3).ogg', 'sound/vo/vart (4).ogg')
 	return used
