@@ -1043,6 +1043,17 @@
 		if(C.silent || !C.can_speak_vocal())
 			message = "makes a muffled hum."
 
+/datum/emote/living/fart
+	key = "fart"
+	message = "farts."
+	nomsg = TRUE //silent but deadly
+	emote_type = EMOTE_AUDIBLE
+/mob/living/carbon/human/verb/emote_fart()
+	set name = "Fart"
+	set category = "Noises"
+
+	emote("fart", intentional = TRUE)
+
 /datum/emote/living/smile
 	key = "smile"
 	key_third_person = "smiles"
