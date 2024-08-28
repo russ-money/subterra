@@ -334,6 +334,7 @@
 		return FALSE
 	flash_fullscreen("redflash3")
 	to_chat(src, span_danger("ZIZO! I NEED TO DIG MY TEETH INTO FLESH!"))
+	src.client.verbs -= GLOB.ghost_verbs
 	emote("rage")
 	Knockdown(1)
 	zombie_antag.wake_zombie(TRUE)
