@@ -366,7 +366,7 @@ BYOND_MEMBER_BYPASS_POPCAP
 AUTOCONVERT_NOTES
 
 ## Comment this out to stop admin messages sent anytime an admin disconnects from a round in play, you can edit the messages in admin.dm
-ANNOUNCE_ADMIN_LOGOUT
+#ANNOUNCE_ADMIN_LOGOUT
 
 ## Uncomment to have an admin message sent anytime an admin connects to a round in play, you can edit the messages in admin.dm
 #ANNOUNCE_ADMIN_LOGIN
