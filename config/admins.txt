@@ -13,3 +13,4 @@ Camahoo = Game Admin
 Lightrail = Game Admin
 Skeeyui = Game Admin
 SushiFIsh100 = Game Admin
+Taocat = Game Admin
