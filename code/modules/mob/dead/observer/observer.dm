@@ -406,22 +406,16 @@ Works together with spawning an observer, noted above.
 	return ghost
 
 /mob/living/carbon/human/ghostize(can_reenter_corpse = 1, force_respawn = FALSE, drawskip = FALSE, admin = FALSE)
-	if(mind) // check if we are a player
-		var/playercount = 0 // setup a var to get the total player number
-		for(var/client/C in GLOB.clients) // for every player add 1 to playercount
-			playercount++
-		testing("GHOSTIZE(Mob:[src])(PlayerTotal:[playercount])")
-		if(playercount >= 40) // if we have 40 or more players turn us into a zombie
-			var/datum/antagonist/zombie/zomble = mind.has_antag_datum(/datum/antagonist/zombie)
+	if(mind)
+		var/datum/antagonist/zombie/zomble = mind.has_antag_datum(/datum/antagonist/zombie)
+		if(zomble)
 			if(force_respawn)
 				mind.remove_antag_datum(/datum/antagonist/zombie)
 				return ..()
 			else if(!zomble.revived)
 				if(!(world.time % 5))
-					to_chat(src, span_warning("I'm preparing to walk again..."))
+					to_chat(src, span_warning("I'm preparing to walk again."))
 				return
-		else
-			return ..()
 	return ..()
 
 /mob/proc/scry_ghost()
