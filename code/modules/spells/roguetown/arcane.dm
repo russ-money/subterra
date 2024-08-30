@@ -1,5 +1,6 @@
 //Might as well need this if we have arcane and divine versions of the same spell
 
+
 /obj/effect/proc_holder/spell/arcane
 	name = "invoked spell"
 	range = -1
