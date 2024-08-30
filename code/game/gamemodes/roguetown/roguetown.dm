@@ -34,6 +34,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 	var/skeletons = FALSE
 
 	var/headrebdecree = FALSE
+	var/reb_end_time = 0
 
 	var/check_for_lord = TRUE
 	var/next_check_lord = 0
@@ -75,7 +76,16 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 				SSvote.initiate_vote("endround", pick("Zlod", "Sun King", "Gaia", "Moon Queen", "Aeon", "Gemini", "Aries"))
 
 	if(headrebdecree)
-		return TRUE
+		if(reb_end_time == 0)
+			to_chat(world, span_boldannounce("The peasant rebels took control of the throne, hail the new community!"))
+			if(ttime >= INITIAL_ROUND_TIMER)
+				reb_end_time = ttime + REBEL_RULE_TIME
+				to_chat(world, span_boldwarning("The round will end in 15 minutes."))
+			else
+				reb_end_time = INITIAL_ROUND_TIMER
+				to_chat(world, span_boldwarning("The round will end at the 2:30 hour mark."))
+		if(ttime >= reb_end_time)
+			return TRUE
 
 	check_for_lord()
 /*
@@ -124,11 +134,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 		return TRUE
 	if(SSticker.manualmodes)
 		forcedmodes |= SSticker.manualmodes
-	var/list/major_modes = list(1, 2, 3)
-	var/list/minor_modes = list(1,2,3)
-	if(prob(25))
-		minor_modes += 4 //maniac
-	var/majorpicked = pick(major_modes)
+
 	if(forcedmodes.len)
 		message_admins("Manual gamemodes selected.")
 		for(var/G in forcedmodes)
@@ -152,34 +158,31 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 				if("Extended")
 					log_game("Major Antagonist: Extended")
 		return TRUE
-	switch(majorpicked)
-		if(1)
+
+	var/major_roll = rand(1,100)
+	switch(major_roll)
+		if(1 to 35)
 			pick_rebels()
 			log_game("Major Antagonist: Rebellion")
-		if(2)
-			log_game("Major Antagonist: Extended") //gotta put something here.
-		if(3) //WWs and Vamps now normally roll together
+		if(36 to 80)
+			//WWs and Vamps now normally roll together
 			pick_vampires()
 			pick_werewolves()
 			log_game("Major Antagonist: Vampires and Werewolves")
-	minor_modes = shuffle(minor_modes)
-	for(var/m in minor_modes)
-		switch(m)
-			if(1)
-				pick_bandits()
-				log_game("Minor Antagonist: Bandit")
-			if(2)
-				pick_aspirants()
-				log_game("Minor Antagonist: Aspirant")
-			if(3)
-				log_game("Minor Antagonist: Extended") // placeholder.
-			if(4)
-				pick_maniac()
-				log_game("Minor Antagonist: Maniac")
-		if(prob(30))
-			continue
-		return TRUE
+		if(81 to 100)
+			log_game("Major Antagonist: Extended") //gotta put something here.
 
+	if(prob(80))
+		pick_bandits()
+		log_game("Minor Antagonist: Bandit")
+	if(prob(45))
+		pick_aspirants()
+		log_game("Minor Antagonist: Aspirant")
+	// if(prob(10))
+	// 	pick_maniac()
+	// 	log_game("Minor Antagonist: Maniac")
+
+	return TRUE
 /datum/game_mode/chaosmode/proc/pick_bandits()
 	//BANDITS
 	banditgoal = rand(200,400)
