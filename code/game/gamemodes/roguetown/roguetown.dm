@@ -192,7 +192,7 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 	"Priest",
 	"Knight")
 	var/num_bandits = 0
-	if(num_players() >= 5)
+	if(num_players() >= 10)
 		num_bandits = CLAMP(round(num_players() / 2), 15, 20)
 		banditgoal += (num_bandits * rand(200,400))
 
@@ -219,6 +219,12 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 
 		*/
 		antag_candidates = get_players_for_role(ROLE_BANDIT)
+
+		// Log the contents of the list
+		for(var/datum/mind/candidate in antag_candidates)
+			testing("[key_name(candidate)] is a candidate for [ROLE_BANDIT]")
+			log_game("[key_name(candidate)] is a candidate for [ROLE_BANDIT]")
+
 		if(antag_candidates.len)
 			for(var/i = 0, i < num_bandits, ++i)
 				var/datum/mind/bandaids = pick_n_take(antag_candidates)
@@ -253,6 +259,11 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 	var/list/rolesneeded = list("Aspirant","Loyalist","Supporter")
 
 	antag_candidates = get_players_for_role(ROLE_ASPIRANT)
+
+	// Log the contents of the list
+	for(var/datum/mind/candidate in antag_candidates)
+		testing("[key_name(candidate)] is a candidate for [ROLE_ASPIRANT]")
+		log_game("[key_name(candidate)] is a candidate for [ROLE_ASPIRANT]")
 	for(var/R in rolesneeded)
 		for(var/datum/mind/couper in antag_candidates) // Aspirant first
 			switch(R)
@@ -288,10 +299,15 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 /datum/game_mode/chaosmode/proc/pick_rebels()
 	restricted_jobs = list() //handled after picking
 	var/num_rebels = 0
-	if(num_players() >= 5)
+	if(num_players() >= 10)
 		num_rebels = CLAMP(round(num_players() / 3), 1, 3)
 	if(num_rebels)
 		antag_candidates = get_players_for_role(ROLE_PREBEL)
+
+		// Log the contents of the list
+		for(var/datum/mind/candidate in antag_candidates)
+			testing("[key_name(candidate)] is a candidate for [ROLE_PREBEL]")
+			log_game("[key_name(candidate)] is a candidate for [ROLE_PREBEL]")
 		if(antag_candidates.len)
 			for(var/i = 0, i < num_rebels, ++i)
 				var/datum/mind/rebelguy = pick_n_take(antag_candidates)
@@ -324,6 +340,10 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 /datum/game_mode/chaosmode/proc/pick_maniac()
 	restricted_jobs = list("King", "Queen Consort")
 	antag_candidates = get_players_for_role(ROLE_MANIAC)
+	// Log the contents of the list
+	for(var/datum/mind/candidate in antag_candidates)
+		testing("[key_name(candidate)] is a candidate for [ROLE_MANIAC]")
+		log_game("[key_name(candidate)] is a candidate for [ROLE_MANIAC]")
 	var/datum/mind/villain = pick_n_take(antag_candidates)
 	if(villain)
 		var/blockme = FALSE
@@ -364,6 +384,10 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 	"Knight"
 	)
 	antag_candidates = get_players_for_role(ROLE_NBEAST)
+	// Log the contents of the list
+	for(var/datum/mind/candidate in antag_candidates)
+		testing("[key_name(candidate)] is a candidate for [ROLE_NBEAST]")
+		log_game("[key_name(candidate)] is a candidate for [ROLE_NBEAST]")
 	antag_candidates = shuffle(antag_candidates)
 	for(var/datum/mind/vampire in antag_candidates)
 		if(!vampsremaining)
@@ -417,6 +441,10 @@ var/global/list/roguegamemodes = list("Rebellion", "Vampires and Werewolves", "E
 
 	var/num_werewolves = rand(1,2)
 	antag_candidates = get_players_for_role(ROLE_WEREWOLF)
+	// Log the contents of the list
+	for(var/datum/mind/candidate in antag_candidates)
+		testing("[key_name(candidate)] is a candidate for [ROLE_WEREWOLF]")
+		log_game("[key_name(candidate)] is a candidate for [ROLE_WEREWOLF]")
 	antag_candidates = shuffle(antag_candidates)
 
 	for(var/datum/mind/werewolf in antag_candidates)
