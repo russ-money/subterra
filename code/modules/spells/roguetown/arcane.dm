@@ -1,5 +1,4 @@
-//Might as well need this if we have arcane and divine versions of the same spell
-
+//Might as well do this if we end having both arcane and divine versions some spells
 
 /obj/effect/proc_holder/spell/arcane
 	name = "invoked spell"
