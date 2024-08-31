@@ -11,12 +11,22 @@
 	invocation_type = "shout"
 	var/active_sound
 
+//Old update icon
+///obj/effect/proc_holder/spell/update_icon()
+//	if(!action)
+//		return
+//	action.button_icon_state = "[base_icon_state][active]"
+//	if(overlay_state)
+//		action.overlay_state = overlay_state
+//	action.name = name
+//	action.UpdateButtonIcon()
+
+//New update icon to work with the new spell icons
 /obj/effect/proc_holder/spell/update_icon()
 	if(!action)
 		return
-	action.button_icon_state = "[base_icon_state][active]"
-	if(overlay_state)
-		action.overlay_state = overlay_state
+	action.button_icon_state = "[overlay_state][active]"
+	action.overlay_state = "[overlay_state][active]"
 	action.name = name
 	action.UpdateButtonIcon()
 
