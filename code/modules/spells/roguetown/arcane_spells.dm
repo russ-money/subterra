@@ -6,15 +6,17 @@
 	overlay_state = "smoke"
 	sound = 'sound/items/firesnuff.ogg'
 	range = 8
-	releasedrain = 15
+	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
 	smoke_spread = 1
 	smoke_amt = 2
-	
+
 /obj/effect/proc_holder/spell/arcane/smokescreen/cast(list/targets,mob/user = usr)
 	. = ..()
-	if(isopenturf(targets[1]))
+	if(isliving(targets[1]))
+		return TRUE
+	else if(isopenturf(targets[1]))
 		return TRUE
 	return FALSE
 
@@ -25,8 +27,8 @@
 	desc = ""
 	overlay_state = "swap"
 	sound = 'sound/magic/magic_nulled.ogg'
-	range = 8
-	releasedrain = 30
+	range = 6
+	releasedrain = 60
 	chargedrain = 0
 	chargetime = 0
 	charge_max = 15 SECONDS
@@ -53,13 +55,45 @@
 			to_chat(M, span_warning("You find myself somewhere else..."))
 	return TRUE
 
+//BLINK-----------------
+
+/obj/effect/proc_holder/spell/arcane/blink
+	name = "Blink"
+	desc = ""
+	overlay_state = "blink"
+	sound = 'sound/magic/magic_nulled.ogg'
+	range = 8
+	releasedrain = 40
+	chargedrain = 0
+	chargetime = 0
+	charge_max = 15 SECONDS
+	var/include_space = FALSE //whether it includes space tiles in possible teleport locations
+	var/include_dense = FALSE //whether it includes dense tiles in possible teleport locations
+
+/obj/effect/temp_visual/blink
+	icon_state = "anom"
+	layer = ABOVE_MOB_LAYER
+	plane = GAME_PLANE_UPPER
+
+/obj/effect/proc_holder/spell/arcane/blink/cast(list/targets,mob/user = usr)
+	. = ..()
+	if(isopenturf(targets[1]))
+		var/atom/location = get_turf(targets[1])
+		new /obj/effect/temp_visual/swap(get_turf(user))
+		new /obj/effect/temp_visual/swap(get_turf(location))
+		do_teleport(user, location, forceMove = TRUE, channel = TELEPORT_CHANNEL_MAGIC)
+		return TRUE
+	else
+		return FALSE
+
+
 // BLINDNESS--------------
 
 /obj/effect/proc_holder/spell/arcane/blindness
 	name = "Blindness"
 	desc = ""
 	overlay_state = "blindness"
-	releasedrain = 30
+	releasedrain = 40
 	chargedrain = 0
 	chargetime = 0
 	range = 7
@@ -82,7 +116,7 @@
 	name = "Invisibility"
 	desc = ""
 	overlay_state = "invisibility"
-	releasedrain = 30
+	releasedrain = 50
 	chargedrain = 0
 	chargetime = 0
 	charge_max = 30 SECONDS
@@ -102,7 +136,7 @@
 		addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living, update_sneak_invis), TRUE), 15 SECONDS)
 		addtimer(CALLBACK(target, TYPE_PROC_REF(/atom/movable, visible_message), span_warning("[target] fades back into view."), span_notice("You become visible again.")), 15 SECONDS)
 	return FALSE
-	
+
 //LIGHTNING---------------
 
 /obj/effect/proc_holder/spell/arcane/projectile/lightningbolt
@@ -206,7 +240,7 @@
 	clothes_req = FALSE
 	range = 8
 	projectile_type = /obj/projectile/magic/aoe/fireball/rogue/great
-	overlay_state = "fireball"
+	overlay_state = "greaterfireball"
 	sound = list('sound/magic/fireball.ogg')
 	active = FALSE
 	releasedrain = 50
