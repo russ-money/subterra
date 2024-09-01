@@ -41,7 +41,7 @@
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
 
-/obj/effect/proc_holder/spell/arcane/swap/arcane/cast(list/targets, mob/living/user)
+/obj/effect/proc_holder/spell/arcane/swap/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
