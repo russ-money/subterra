@@ -27,11 +27,12 @@
 	desc = ""
 	overlay_state = "swap"
 	sound = 'sound/magic/magic_nulled.ogg'
-	range = 6
-	releasedrain = 60
-	chargedrain = 0
-	chargetime = 0
-	charge_max = 15 SECONDS
+	range = 8
+	releasedrain = 50
+	chargedrain = 1
+	chargetime = 15
+	charge_max = 20 SECONDS
+	charging_slowdown = 3
 	var/include_space = FALSE //whether it includes space tiles in possible teleport locations
 	var/include_dense = FALSE //whether it includes dense tiles in possible teleport locations
 
@@ -40,7 +41,7 @@
 	layer = ABOVE_MOB_LAYER
 	plane = GAME_PLANE_UPPER
 
-/obj/effect/proc_holder/spell/invoked/swap/arcane/cast(list/targets, mob/living/user)
+/obj/effect/proc_holder/spell/arcane/swap/arcane/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
 		if(target.anti_magic_check(TRUE, TRUE))
@@ -63,7 +64,7 @@
 	overlay_state = "blink"
 	sound = 'sound/magic/magic_nulled.ogg'
 	range = 8
-	releasedrain = 40
+	releasedrain = 50
 	chargedrain = 0
 	chargetime = 0
 	charge_max = 15 SECONDS
@@ -278,6 +279,7 @@
 	charging_slowdown = 1
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
+
 /obj/projectile/magic/fetch/on_hit(target)
 	. = ..()
 	if(ismob(target))
@@ -287,3 +289,35 @@
 			playsound(get_turf(target), 'sound/magic/magic_nulled.ogg', 100)
 			qdel(src)
 			return BULLET_ACT_BLOCK
+
+//TELEPATHY
+
+/obj/effect/proc_holder/spell/arcane/telepathy
+	name = "telepathy"
+	desc = ""
+	range = 15
+	overlay_state = "psy"
+	sound = list('sound/magic/magnet.ogg')
+	active = FALSE
+	releasedrain = 20
+	chargedrain = 0
+	chargetime = 0
+	warnie = "spellwarning"
+	no_early_release = TRUE
+	charging_slowdown = 1
+	chargedloop = /datum/looping_sound/invokegen
+	associated_skill = /datum/skill/magic/arcane
+
+/obj/effect/proc_holder/spell/arcane/telepathy/cast(list/targets,mob/user = usr)
+	. = ..()
+	if(isliving(targets[1]))
+		var/mob/living/target = targets[1]
+		if(target.anti_magic_check(TRUE, TRUE))
+			return FALSE
+		var/input = stripped_input(user, "What message are you sending?", null, "")
+		if(!input)
+			return FALSE
+		to_chat(user, span_warning("I transmit to [target]: " + "[input]"))
+		to_chat(target, span_warning("You hear a voice in your head saying: ") + span_boldwarning("[input]"))
+		return TRUE
+
