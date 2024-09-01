@@ -154,6 +154,12 @@
 	see_in_dark = 3
 	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
 
+/obj/item/organ/eyes/light_sensitive
+	name = "light-sensitive eyes"
+	desc = ""
+	see_in_dark = 4
+	lighting_alpha = LIGHTING_PLANE_ALPHA_LESSER_NV_TRAIT
+
 /obj/item/organ/eyes/goblin
 	name = "goblin eyes"
 	desc = ""
