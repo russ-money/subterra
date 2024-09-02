@@ -901,7 +901,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	dat += "<table width='100%'>"
 	dat += "<tr>"
 	dat += "<td width='33%' align='left'></td>"
-	dat += "<td width='33%' align='center'>"
+	dat += "<td width='33%' align='center'><br><br>"
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 		switch(N.ready)
 			if(PLAYER_NOT_READY)
