@@ -1,3 +1,39 @@
+//IGNITE------------------
+
+/obj/effect/proc_holder/spell/arcane/ignite
+	name = "Ignite"
+	desc = ""
+	overlay_state = "flame"
+	sound = 'sound/items/firelight.ogg'
+	range = 4
+	releasedrain = 30
+	chargedrain = 0
+	chargetime = 0
+	charge_max = 10 SECONDS
+
+/obj/effect/proc_holder/spell/arcane/ignite/cast(list/targets, mob/user = usr)
+	. = ..()
+	if(isliving(targets[1]))
+		var/mob/living/L = targets[1]
+		user.visible_message("<font color='yellow'>[user] points at [L]!</font>")
+		if(L.anti_magic_check(TRUE, TRUE))
+			return FALSE
+		L.adjust_fire_stacks(5)
+		L.IgniteMob()
+		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, ExtinguishMob)), 5 SECONDS)
+		return TRUE
+
+	// Spell interaction with ignitable objects (burn wooden things, light torches up)
+	else if(isobj(targets[1]))
+		var/obj/O = targets[1]
+		if(O.fire_act())
+			user.visible_message("<font color='yellow'>[user] points at [O], igniting it in flames!</font>")
+			return TRUE
+		else
+			to_chat(user, span_warning("You point at [O], but it fails to catch fire."))
+			return FALSE
+	return FALSE
+
 //SMOKESCREEN-----------------
 
 /obj/effect/proc_holder/spell/arcane/smokescreen
@@ -9,6 +45,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
+	charge_max = 10 SECONDS
 	smoke_spread = 1
 	smoke_amt = 2
 
@@ -97,6 +134,7 @@
 	releasedrain = 40
 	chargedrain = 0
 	chargetime = 0
+	charge_max = 10 SECONDS
 	range = 7
 	movement_interrupt = FALSE
 	sound = 'sound/magic/churn.ogg'
@@ -150,7 +188,7 @@
 	releasedrain = 30
 	chargedrain = 1
 	chargetime = 15
-	charge_max = 20 SECONDS
+	charge_max = 10 SECONDS
 	movement_interrupt = FALSE
 	charging_slowdown = 3
 
@@ -181,8 +219,12 @@
 			return BULLET_ACT_BLOCK
 		if(isliving(target))
 			var/mob/living/L = target
+//			for(var/obj/item/I in L.get_equipped_items())	//Maybe add 5 damage for each metal gear in the target? 
+//				if(I.smeltresult == /obj/item/ingot/iron)	//More damage if the target is on water tuff too?
+//					damage += 5    							//(dont know it that code work tho)
 			L.electrocute_act(1, src)
 	qdel(src)
+
 
 //FIREBALL-------------------------
 
@@ -203,8 +245,6 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	charging_slowdown = 3
-	chargedloop = /datum/looping_sound/invokegen
-	associated_skill = /datum/skill/magic/arcane
 
 /obj/effect/proc_holder/spell/arcane/projectile/fireball/fire_projectile(list/targets, mob/living/user)
 	projectile_var_overrides = list("range" = 8)
@@ -243,7 +283,6 @@
 	projectile_type = /obj/projectile/magic/aoe/fireball/rogue/great
 	overlay_state = "greaterfireball"
 	sound = list('sound/magic/fireball.ogg')
-	active = FALSE
 	releasedrain = 50
 	chargedrain = 1
 	chargetime = 15
@@ -270,15 +309,13 @@
 	projectile_type = /obj/projectile/magic/fetch
 	overlay_state = "fetch"
 	sound = list('sound/magic/magnet.ogg')
-	active = FALSE
 	releasedrain = 5
 	chargedrain = 0
 	chargetime = 0
+	charge_max = 5 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	charging_slowdown = 1
-	chargedloop = /datum/looping_sound/invokegen
-	associated_skill = /datum/skill/magic/arcane
 
 /obj/projectile/magic/fetch/on_hit(target)
 	. = ..()
@@ -290,7 +327,7 @@
 			qdel(src)
 			return BULLET_ACT_BLOCK
 
-//TELEPATHY
+//TELEPATHY---------------------------
 
 /obj/effect/proc_holder/spell/arcane/telepathy
 	name = "telepathy"
@@ -298,15 +335,13 @@
 	range = 15
 	overlay_state = "psy"
 	sound = list('sound/magic/magnet.ogg')
-	active = FALSE
 	releasedrain = 20
 	chargedrain = 0
 	chargetime = 0
+	charge_max = 15 SECONDS
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	charging_slowdown = 1
-	chargedloop = /datum/looping_sound/invokegen
-	associated_skill = /datum/skill/magic/arcane
 
 /obj/effect/proc_holder/spell/arcane/telepathy/cast(list/targets,mob/user = usr)
 	. = ..()
@@ -320,4 +355,55 @@
 		to_chat(user, span_warning("I transmit to [target]: " + "[input]"))
 		to_chat(target, span_warning("You hear a voice in your head saying: ") + span_boldwarning("[input]"))
 		return TRUE
+
+//UNLOCK <WIP>--------------------------
+
+/obj/effect/proc_holder/spell/arcane/unlock
+	name = "unlock"
+	desc = ""
+	range = 1
+	overlay_state = "lock"
+	sound = list('sound/magic/magnet.ogg')
+	releasedrain = 20
+	chargedrain = 1
+	chargetime = 30
+	charge_max = 15 SECONDS
+	warnie = "spellwarning"
+	no_early_release = TRUE
+	charging_slowdown = 1
+
+///obj/effect/proc_holder/spell/arcane/unlock/cast(list/targets,mob/user = usr)
+//	. = ..()
+//	if(istype(targets[1], (/obj/structure/mineral_door/ | /obj/structure/closet)))
+//		var/obj/O = targets[1]
+//		if(O.door_opened || O.isSwitchingStates)
+//			to_chat(user, "<span class='warning'>It is already open.</span>")
+//			return TRUE
+//		if(!O.keylock)
+//			to_chat(user, "<span class='warning'>There's no lock on this.</span>")
+//			return TRUE
+//		return
+//		if(O.lockbroken)
+//			to_chat(user, "<span class='warning'>The lock is broken.</span>")
+//			return TRUE
+//		else
+//			var/prob2open = 0
+//			var/diceroll = 0
+//				if(user && user.mind)
+//			prob2open = 20
+//			diceroll = rand(0,100)
+//			for(var/i in 1 to user.mind.get_skill_level(/datum/skill/magic/arcane))
+//				prob2open += 5
+//			if (diceroll <= prob2open)
+//				if(istype(targets[1], /obj/structure/mineral_door/)
+//					lock_toggle(O)
+//				if(istype(targets[1], /obj/structure/closet)
+//					togglelock(O)
+//			else
+//				to_chat(user, "<span class='warning'>The spell fails to unlock it...</span>")
+//				
+//			return TRUE
+//	else
+//		return TRUE
+//I cant code for shit, will rethink this later.
 
