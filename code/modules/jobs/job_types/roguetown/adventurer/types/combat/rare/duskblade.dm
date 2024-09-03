@@ -2,8 +2,8 @@
 
 /datum/advclass/duskblade
 	name = "Duskblade"
-	tutorial = "The duskblade blurs the line between spellcaster and warrior, \
-	marrying the power of magic with hand-to-hand combat prowess. A student of ancient elven spellcasting techniques, \
+	tutorial = "The duskblade blurs the line between spellcaster and warrior,\
+	marrying the power of magic with hand-to-hand combat prowess. A student of ancient elven spellcasting techniques,\
 	the duskblade combines arcane spellcasting with the combat skills of a fighter."
 	allowed_races = list(
 		"Humen",
