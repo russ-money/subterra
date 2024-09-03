@@ -21,12 +21,19 @@
 //	action.name = name
 //	action.UpdateButtonIcon()
 
-//New update icon to work with the new spell icons
+//That is a ugly way of checking it the spell is a mmb cast or not and I know it...
+//But it's what worked better so far for some reason.
 /obj/effect/proc_holder/spell/update_icon()
 	if(!action)
 		return
-	action.button_icon_state = "[overlay_state][active]"
-	action.overlay_state = "[overlay_state][active]"
+	action.button_icon_state = base_icon_state
+	if (selection_type == "view") 
+		if(overlay_state)
+			action.overlay_state = "[overlay_state]1"
+	else
+		action.button_icon_state = "[base_icon_state][active]"
+		if(overlay_state)
+			action.overlay_state = "[overlay_state][active]"
 	action.name = name
 	action.UpdateButtonIcon()
 
