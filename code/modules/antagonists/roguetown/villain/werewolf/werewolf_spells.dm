@@ -32,6 +32,7 @@
 			
 	message_admins("WEREWOLF: [werewolf_player.wolfname] howls: [message]")
 
+//Old version, ugly and no feedback with the new icons
 /obj/effect/proc_holder/spell/self/claws
 	name = "Lupine Claws"
 	desc = "!"
@@ -62,4 +63,32 @@
 		user.put_in_hands(r, TRUE, FALSE, TRUE)
 		//user.visible_message("Your claws extend.", "You feel your claws extending.", "You hear a sound of claws extending.")
 		extended = TRUE
-	
+
+//New version (to work nicely with the new icons)
+/obj/effect/proc_holder/spell/invoked/claws
+	name = "Lupine Claws"
+	desc = "!"
+	overlay_state = "claws"
+	antimagic_allowed = TRUE
+	charge_max = 20 //2 seconds
+	var/extended = FALSE
+	var/obj/item/rogueweapon/werewolf_claw/left/l
+	var/obj/item/rogueweapon/werewolf_claw/right/r
+
+/obj/effect/proc_holder/spell/invoked/claws/on_activation(mob/user = usr)
+	l = new(user,1)
+	r = new(user,2)
+	user.put_in_hands(l, TRUE, FALSE, TRUE)
+	user.put_in_hands(r, TRUE, FALSE, TRUE)
+	//user.visible_message("Your claws extend.", "You feel your claws extending.", "You hear a sound of claws extending.")
+	extended = TRUE
+
+/obj/effect/proc_holder/spell/invoked/claws/on_deactivation(mob/user = usr)
+	l = user.get_active_held_item()
+	r = user.get_inactive_held_item()
+	user.dropItemToGround(l, TRUE)
+	user.dropItemToGround(r, TRUE)
+	qdel(l)
+	qdel(r)
+	//user.visible_message("Your claws retract.", "You feel your claws retracting.", "You hear a sound of claws retracting.")
+	extended = FALSE
