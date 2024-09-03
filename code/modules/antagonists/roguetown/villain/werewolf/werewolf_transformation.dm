@@ -116,7 +116,7 @@
 	W.mind.adjust_skillrank(/datum/skill/misc/climbing, 6, TRUE)
 
 	W.AddSpell(new /obj/effect/proc_holder/spell/self/howl)
-	W.AddSpell(new /obj/effect/proc_holder/spell/self/claws)
+	W.AddSpell(new /obj/effect/proc_holder/spell/invoked/claws)
 
 	ADD_TRAIT(src, TRAIT_NOSLEEP, TRAIT_GENERIC)
 
@@ -171,7 +171,7 @@
 	W.mind.skill_experience = WA.stored_experience.Copy()
 
 	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/howl)
-	W.RemoveSpell(new /obj/effect/proc_holder/spell/self/claws)
+	W.RemoveSpell(new /obj/effect/proc_holder/spell/invoked/claws)
 
 	W.regenerate_icons()
 
