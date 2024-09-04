@@ -50,6 +50,15 @@
 	else if(x<0)
 		.+=360
 
+//Get the all the damn arcane spells
+/proc/Get_Learnable_Spells()
+	var/ret = list()
+	for(var/S in GLOB.spells)
+		var/obj/effect/proc_holder/spell/arcane/spell = S
+		if(spell.learnable)
+			ret += spell
+	return ret
+
 //Returns location. Returns null if no location was found.
 /proc/get_teleport_loc(turf/location,mob/target,distance = 1, density = FALSE, errorx = 0, errory = 0, eoffsetx = 0, eoffsety = 0)
 /*
