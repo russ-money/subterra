@@ -411,6 +411,14 @@
 	tools = list(/obj/item/needle = 1)
 	req_table = TRUE
 
+/datum/crafting_recipe/roguetown/magic_feather
+	name = "magic feather"
+	result = /obj/item/natural/feather/magic
+	reqs = list(
+		/obj/item/reagent_containers/powder = 1,
+		/obj/item/natural/feather = 1
+	)
+
 /datum/crafting_recipe/roguetown/woodcross
 	name = "wooden amulet"
 	result = /obj/item/clothing/neck/roguetown/psicross/wood
