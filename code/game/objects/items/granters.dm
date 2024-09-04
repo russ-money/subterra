@@ -508,3 +508,47 @@
 	spellname = "Bone Chill"
 	icon_state ="scrolldarkred"
 	remarks = list("Mediolanum ventis..", "Sana damnatorum..", "Frigidus ossa mortuorum..")
+
+//! --SPELL BOOKS-- !/
+
+/obj/item/book/granter/spell/generic
+	name = "Spellbook"
+	desc = "A book of potential known only to those that can decipher its secrets."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "book1"
+	oneuse = TRUE
+	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
+	pickup_sound =  'sound/blank.ogg'
+	var/obj/effect/proc_holder/spell/arcane/target = null
+
+/obj/item/book/granter/spell/generic/Initialize(loc)
+	. = ..()
+	target = pick(GLOB.learnables)
+	var/obj/effect/proc_holder/spell/arcane/S = new target
+	spellname = S.name
+	name = "Book of [spellname]"
+
+/obj/item/book/granter/spell/generic/already_known(mob/user)
+	if(!target)
+		return TRUE
+	for(var/obj/effect/proc_holder/spell/arcane/knownspell in user.mind.spell_list)
+		if(knownspell.type == target)
+			to_chat(user,"<span class='warning'>You already know this one!</span>")
+			return TRUE
+	return FALSE
+
+/obj/item/book/granter/spell/generic/on_reading_start(mob/user)
+	to_chat(user, "<span class='notice'>I start reading about [spellname]...</span>")
+
+/obj/item/book/granter/spell/generic/on_reading_finished(mob/user)
+	. = ..()
+	if(oneuse)
+		name = "Siphoned Book of [target.name]"
+		desc = "A book once inscribed with magical scripture. The surface is now barren of knowledge, siphoned by someone else. It's utterly useless."
+		user.visible_message("<span class='warning'>[src] has had its magic ink ripped from the book!</span>")
+	to_chat(user, "<span class='notice'>Your knowledge expands, you understand how to cast [spellname]!</span>")
+	var/S = new target
+	user.mind.AddSpell(S)
+	//user.mind.adjust_experience(/datum/skill/misc/reading, user.STAINT) //cant find the user's STAINT here for some cursed reason...
+	user.log_message("learned the spell [target.name] ([target])", LOG_ATTACK, color="orange")
+	onlearned(user)
