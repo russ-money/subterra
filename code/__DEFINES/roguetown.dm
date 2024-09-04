@@ -87,3 +87,8 @@ GLOBAL_LIST_EMPTY(job_respawn_delays)
 #define TRIUMPH_CAT_CHARACTER "CHARACTER"
 #define TRIUMPH_CAT_MISC "MISC!"
 #define TRIUMPH_CAT_ACTIVE_DATUMS "ACTIVE"
+
+/*
+	Learnable arcane spell books
+*/
+GLOBAL_LIST_INIT(learnables, list())
