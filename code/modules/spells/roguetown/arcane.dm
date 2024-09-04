@@ -17,6 +17,7 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	charging_slowdown = 1
+	var/learnable = FALSE //If the spell can be learnable by spellbooks, FALSE by default to avoid dumb issues. put TRUE individually on those that can be learnt via craftable spellbooks.
 
 /obj/effect/proc_holder/spell/arcane/Click()
 	var/mob/living/user = usr
