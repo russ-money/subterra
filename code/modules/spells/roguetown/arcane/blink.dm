@@ -12,6 +12,7 @@
 	charge_max = 15 SECONDS
 	var/include_space = FALSE //whether it includes space tiles in possible teleport locations
 	var/include_dense = FALSE //whether it includes dense tiles in possible teleport locations
+	learnable = TRUE
 
 /obj/effect/temp_visual/blink
 	icon_state = "anom"

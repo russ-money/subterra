@@ -12,6 +12,7 @@
 	charge_max = 10 SECONDS
 	smoke_spread = 1	//Just Smoke
 	smoke_amt = 2
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/smokescreen/cast(list/targets,mob/user = usr)
 	. = ..()
@@ -35,6 +36,7 @@
 	charge_max = 15 SECONDS
 	smoke_spread = 2  //Now it makes the target cough and drop items in hand
 	smoke_amt = 1
+	learnable = FALSE
 
 /obj/effect/proc_holder/spell/arcane/densesmoke/cast(list/targets,mob/user = usr)
 	. = ..()
@@ -58,6 +60,7 @@
 	charge_max = 30 SECONDS
 	smoke_spread = 3  //Now this will make the target to fall asleep
 	smoke_amt = 2
+	learnable = FALSE
 
 /obj/effect/proc_holder/spell/arcane/sleepgas/cast(list/targets,mob/user = usr)
 	. = ..()

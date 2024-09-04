@@ -17,6 +17,7 @@
 	no_early_release = TRUE
 	movement_interrupt = FALSE
 	charging_slowdown = 3
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/projectile/fireball/fire_projectile(list/targets, mob/living/user)
 	projectile_var_overrides = list("range" = 8)
@@ -62,6 +63,7 @@
 	no_early_release = TRUE
 	movement_interrupt = TRUE
 	chargedloop = /datum/looping_sound/invokegen
+	learnable = FALSE
 
 /obj/projectile/magic/aoe/fireball/rogue/great
 	name = "fireball"

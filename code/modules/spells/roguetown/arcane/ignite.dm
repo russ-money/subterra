@@ -10,6 +10,7 @@
 	chargedrain = 0
 	chargetime = 0
 	charge_max = 10 SECONDS
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/ignite/cast(list/targets, mob/user = usr)
 	. = ..()

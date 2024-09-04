@@ -12,6 +12,7 @@
 	movement_interrupt = FALSE
 	sound = 'sound/magic/churn.ogg'
 	antimagic_allowed = TRUE
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/blindness/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))

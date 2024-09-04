@@ -14,6 +14,7 @@
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	charging_slowdown = 1
+	learnable = TRUE
 
 /obj/projectile/magic/fetch/on_hit(target)
 	. = ..()

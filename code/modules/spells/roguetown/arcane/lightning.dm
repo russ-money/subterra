@@ -13,6 +13,7 @@
 	charge_max = 10 SECONDS
 	movement_interrupt = FALSE
 	charging_slowdown = 3
+	learnable = TRUE
 
 /obj/projectile/magic/lightning
 	name = "bolt of lightning"

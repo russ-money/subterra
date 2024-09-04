@@ -12,6 +12,7 @@
 	movement_interrupt = FALSE
 	sound = 'sound/misc/area.ogg' //This sound doesnt play for some reason. Fix me.
 	antimagic_allowed = TRUE
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/invisibility/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))

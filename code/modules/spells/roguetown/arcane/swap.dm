@@ -11,6 +11,7 @@
 	chargetime = 15
 	charge_max = 20 SECONDS
 	charging_slowdown = 3
+	learnable = TRUE
 	var/include_space = FALSE //whether it includes space tiles in possible teleport locations
 	var/include_dense = FALSE //whether it includes dense tiles in possible teleport locations
 

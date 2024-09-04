@@ -13,6 +13,7 @@
 	warnie = "spellwarning"
 	no_early_release = TRUE
 	charging_slowdown = 1
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/telepathy/cast(list/targets,mob/user = usr)
 	. = ..()
