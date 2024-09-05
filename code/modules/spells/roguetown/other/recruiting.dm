@@ -141,6 +141,7 @@
 /obj/effect/proc_holder/spell/self/rebelconvert
 	name = "RECRUIT REBELS"
 	desc = "!"
+	overlay_state = "recruit"
 	antimagic_allowed = TRUE
 	charge_max = 150
 
