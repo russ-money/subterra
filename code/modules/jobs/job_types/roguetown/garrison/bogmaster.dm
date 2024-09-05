@@ -86,18 +86,3 @@
 	ADD_TRAIT(H, TRAIT_HEAVYARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_MEDIUMARMOR, TRAIT_GENERIC)
 	ADD_TRAIT(H, TRAIT_STEELHEARTED, TRAIT_GENERIC)
-
-/obj/effect/proc_holder/spell/self/convertrole/bog
-	name = "Recruit Bogmen"
-	new_role = "Bog Guard"
-	recruitment_faction = "Bog Guard"
-	recruitment_message = "Serve the bog, %RECRUIT!"
-	accept_message = "FOR THE BOG!"
-	refuse_message = "I refuse."
-
-/obj/effect/proc_holder/spell/self/convertrole/bog/convert(mob/living/carbon/human/recruit, mob/living/carbon/human/recruiter)
-	. = ..()
-	if(!.)
-		return
-	recruit.verbs |= /mob/proc/haltyell
-
