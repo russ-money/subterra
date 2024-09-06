@@ -23,9 +23,9 @@
 	. = ..()
 	if(isopenturf(targets[1]))
 		var/atom/location = get_turf(targets[1])
-		new /obj/effect/temp_visual/swap(get_turf(user))
-		new /obj/effect/temp_visual/swap(get_turf(location))
-		do_teleport(user, location, forceMove = TRUE, channel = TELEPORT_CHANNEL_MAGIC)
-		return TRUE
-	else
-		return FALSE
+		if(location in oview(range,user))
+			new /obj/effect/temp_visual/swap(get_turf(user))
+			new /obj/effect/temp_visual/swap(get_turf(location))
+			do_teleport(user, location, forceMove = TRUE, channel = TELEPORT_CHANNEL_MAGIC)
+			return TRUE
+	return FALSE
