@@ -27,7 +27,7 @@
 	min_pq = -30
 	max_pq = null
 
-	cmode_music = 'sound/music/combat_bum.ogg'
+	cmode_music = 'sound/music/combatmusic/CombatOrphan.ogg'
 
 /datum/job/roguetown/orphan/New()
 	. = ..()

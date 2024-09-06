@@ -56,7 +56,14 @@
 		H.STASTR = rand(1, 20)
 		H.STAINT = rand(1, 20)
 		H.STALUC = rand(1, 20)
-		H.cmode_music = 'sound/music/combat_jester.ogg'
+		H.cmode_music = pick(
+			prob(50)
+				"sound/music/combatmusic/CombatJester1.ogg",
+			prob(45)
+				"sound/music/combatmusic/CombatJester2.ogg",
+			prob(5)
+				"sound/music/combatmusic/CombatJester3.ogg"
+		)
 /*
 		if(H.gender == MALE)
 			if(H.dna?.species)

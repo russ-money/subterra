@@ -18,6 +18,7 @@
 	give_bank_account = 17
 	min_pq = 2
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatButler.ogg'
 
 /datum/outfit/job/roguetown/steward/pre_equip(mob/living/carbon/human/H)
 	..()

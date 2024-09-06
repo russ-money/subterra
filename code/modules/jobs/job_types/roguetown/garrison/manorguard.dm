@@ -16,7 +16,7 @@
 	min_pq = 2
 	max_pq = null
 
-	cmode_music = 'sound/music/combat_guard2.ogg'
+	cmode_music = 'sound/music/combatmusic/CombatManorGuard.ogg'
 
 /datum/job/roguetown/manorguard/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

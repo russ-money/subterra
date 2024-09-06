@@ -22,6 +22,7 @@
 	give_bank_account = 115
 	min_pq = 2
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatPriest.ogg'
 
 /datum/outfit/job/roguetown/priest
 	allowed_patrons = list(/datum/patron/divine/astrata)

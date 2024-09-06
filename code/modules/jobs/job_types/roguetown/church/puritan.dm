@@ -29,6 +29,7 @@
 	give_bank_account = 36
 	min_pq = 5
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatInquisitor.ogg'
 
 /datum/job/roguetown/puritan/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
 	..()

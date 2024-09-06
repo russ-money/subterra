@@ -25,6 +25,7 @@
 	give_bank_account = TRUE
 	min_pq = -5
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatMortician.ogg'
 
 /datum/outfit/job/roguetown/undertaker
 	allowed_patrons = list(/datum/patron/divine/necra)
