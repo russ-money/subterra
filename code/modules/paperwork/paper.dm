@@ -417,7 +417,7 @@
 	if(mailer)
 		return ..()
 
-	if(is_blind(user))
+	if(user.is_blind())
 		return ..()
 
 	if(istype(P, /obj/item/pen) || istype(P, /obj/item/natural/thorn)|| istype(P, /obj/item/natural/feather))
