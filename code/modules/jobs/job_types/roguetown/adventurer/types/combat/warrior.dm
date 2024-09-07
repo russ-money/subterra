@@ -16,6 +16,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/sfighter
 	traits_applied = list(TRAIT_HEAVYARMOR)
+	cmode_music = 'sound/music/combatmusic/CombatWarrior.ogg'
 
 	category_tags = list(CTAG_ADVENTURER)
 

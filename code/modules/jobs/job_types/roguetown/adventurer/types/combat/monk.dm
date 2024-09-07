@@ -15,6 +15,7 @@
 	)
 	outfit = /datum/outfit/job/roguetown/adventurer/monk
 	traits_applied = list(TRAIT_DODGEEXPERT)
+	cmode_music = 'sound/music/combatmusic/CombatMonk.ogg'
 
 	vampcompat = FALSE
 

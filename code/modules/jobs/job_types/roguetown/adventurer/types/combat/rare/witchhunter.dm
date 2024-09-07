@@ -10,6 +10,7 @@
 	pickprob = 11
 	traits_applied = list(TRAIT_MEDIUMARMOR)
 	category_tags = list(CTAG_ADVENTURER)
+	cmode_music = 'sound/music/combatmusic/CombatWitchHunter.ogg'
 
 /datum/outfit/job/roguetown/adventurer/puritan
 	allowed_patrons = list(/datum/patron/old_god)

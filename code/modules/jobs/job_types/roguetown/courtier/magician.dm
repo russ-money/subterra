@@ -22,6 +22,7 @@
 	give_bank_account = 47
 	min_pq = 2
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatCourtMage.ogg'
 
 /datum/outfit/job/roguetown/magician
 	allowed_patrons = list(/datum/patron/divine/noc)

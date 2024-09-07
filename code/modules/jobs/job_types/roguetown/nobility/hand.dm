@@ -14,6 +14,7 @@
 	give_bank_account = 44
 	min_pq = 3
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatHand.ogg'
 
 /*
 /datum/job/roguetown/hand/special_job_check(mob/dead/new_player/player)

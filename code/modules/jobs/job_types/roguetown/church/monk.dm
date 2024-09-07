@@ -21,6 +21,7 @@
 	give_bank_account = TRUE
 	min_pq = 0
 	max_pq = null
+	cmode_music = 'sound/music/combatmusic/CombatAcolyte.ogg'
 
 /datum/outfit/job/roguetown/monk
 	name = "Acolyte"
