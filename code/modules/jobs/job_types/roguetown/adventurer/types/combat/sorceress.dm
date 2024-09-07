@@ -27,7 +27,7 @@
 	backl = /obj/item/storage/backpack/rogue/satchel
 	beltr = /obj/item/reagent_containers/glass/bottle/rogue/manapot
 	beltl = /obj/item/rogueweapon/huntingknife
-	neck = /obj/item/storage/belt/rogue/pouch/coins/poor	
+	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	r_hand = /obj/item/rogueweapon/woodstaff
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
@@ -47,6 +47,20 @@
 		H.change_stat("strength", -1)
 		H.change_stat("intelligence", 4)
 		H.change_stat("speed", 1)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fireball)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/fetch)
+		var/list/possible_spells = list(
+			"/obj/effect/proc_holder/spell/arcane/telepathy",
+			"/obj/effect/proc_holder/spell/arcane/ignite",
+			"/obj/effect/proc_holder/spell/arcane/blink",
+			"/obj/effect/proc_holder/spell/arcane/swap",
+			"/obj/effect/proc_holder/spell/arcane/smokescreen",
+			"/obj/effect/proc_holder/spell/arcane/blindness",
+			"/obj/effect/proc_holder/spell/arcane/invisibility",
+			"/obj/effect/proc_holder/spell/arcane/projectile/fetch"
+		)
+		H.mind.AddSpell(pick(new /obj/effect/proc_holder/spell/arcane/projectile/fireball,new /obj/effect/proc_holder/spell/arcane/projectile/lightningbolt))
+		for(var/i=2,i>0,i--)
+			var/random_item = pick(possible_spells)
+			var typepath = text2path(random_item)
+			H.mind.AddSpell(new typepath)
+			possible_spells.Remove(random_item)
+		possible_spells = null

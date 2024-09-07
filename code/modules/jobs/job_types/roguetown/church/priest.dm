@@ -154,19 +154,3 @@
 			to_chat(src, span_warning("I need to do this from the chapel."))
 			return FALSE
 		priority_announce("[inputty]", title = "The Priest Speaks", sound = 'sound/misc/bell.ogg')
-
-/obj/effect/proc_holder/spell/self/convertrole/templar
-	name = "Recruit Templar"
-	new_role = "Templar"
-	recruitment_faction = "Templars"
-	recruitment_message = "Serve the nine, %RECRUIT!"
-	accept_message = "FOR THE NINE!"
-	refuse_message = "I refuse."
-
-/obj/effect/proc_holder/spell/self/convertrole/monk
-	name = "Recruit Acolyte"
-	new_role = "Acolyte"
-	recruitment_faction = "Church"
-	recruitment_message = "Serve the nine, %RECRUIT!"
-	accept_message = "FOR THE NINE!"
-	refuse_message = "I refuse."

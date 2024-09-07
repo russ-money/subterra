@@ -71,12 +71,3 @@
 		H.change_stat("speed", 2)
 		H.change_stat("perception", 2)
 		H.change_stat("fortune", 5)
-
-/obj/effect/proc_holder/spell/self/convertrole/servant
-	name = "Recruit Servant"
-	new_role = "Servant"
-	recruitment_faction = "Servants"
-	recruitment_message = "Serve the crown, %RECRUIT!"
-	accept_message = "FOR THE CROWN!"
-	refuse_message = "I refuse."
-	charge_max = 100

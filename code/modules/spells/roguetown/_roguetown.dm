@@ -11,12 +11,29 @@
 	invocation_type = "shout"
 	var/active_sound
 
+//Old update icon
+///obj/effect/proc_holder/spell/update_icon()
+//	if(!action)
+//		return
+//	action.button_icon_state = "[base_icon_state][active]"
+//	if(overlay_state)
+//		action.overlay_state = overlay_state
+//	action.name = name
+//	action.UpdateButtonIcon()
+
+//That is a ugly way of checking it the spell is a mmb cast or not and I know it...
+//But it's what worked better so far for some reason.
 /obj/effect/proc_holder/spell/update_icon()
 	if(!action)
 		return
-	action.button_icon_state = "[base_icon_state][active]"
-	if(overlay_state)
-		action.overlay_state = overlay_state
+	action.button_icon_state = base_icon_state
+	if (selection_type == "view") 
+		if(overlay_state)
+			action.overlay_state = "[overlay_state]1"
+	else
+		action.button_icon_state = "[base_icon_state][active]"
+		if(overlay_state)
+			action.overlay_state = "[overlay_state][active]"
 	action.name = name
 	action.UpdateButtonIcon()
 

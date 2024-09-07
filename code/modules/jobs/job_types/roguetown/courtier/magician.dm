@@ -13,7 +13,6 @@
 		"Half-Elf",
 		"Aasimar",
 	)
-	spells = list(/obj/effect/proc_holder/spell/invoked/projectile/fireball/greater, /obj/effect/proc_holder/spell/invoked/projectile/fireball, /obj/effect/proc_holder/spell/invoked/projectile/lightningbolt, /obj/effect/proc_holder/spell/invoked/projectile/fetch)
 	display_order = JDO_MAGICIAN
 	tutorial = "Your creed is one dedicated to the conquering of the arcane arts and the constant thrill of knowledge. \
 		You owe your life to the Lord, for it was his coin that allowed you to continue your studies in these dark times. \
@@ -70,3 +69,24 @@
 				head = /obj/item/clothing/head/roguetown/wizhat
 				armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 				H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
+
+		var/list/possible_spells = list(
+			"/obj/effect/proc_holder/spell/arcane/telepathy",
+			"/obj/effect/proc_holder/spell/arcane/ignite",
+			"/obj/effect/proc_holder/spell/arcane/blink",
+			"/obj/effect/proc_holder/spell/arcane/swap",
+			"/obj/effect/proc_holder/spell/arcane/smokescreen",
+			"/obj/effect/proc_holder/spell/arcane/projectile/lightningbolt",
+			"/obj/effect/proc_holder/spell/arcane/projectile/fireball",
+			"/obj/effect/proc_holder/spell/arcane/blindness",
+			"/obj/effect/proc_holder/spell/arcane/invisibility",
+			"/obj/effect/proc_holder/spell/arcane/projectile/fetch"
+		)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/arcane/projectile/fireball/greater)
+		for(var/i=3,i>0,i--)
+			var/random_item = pick(possible_spells)
+			var typepath = text2path(random_item)
+			H.mind.AddSpell(new typepath)
+			possible_spells.Remove(random_item)
+		possible_spells = null
+
