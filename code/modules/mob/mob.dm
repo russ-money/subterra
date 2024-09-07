@@ -220,7 +220,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		if(!msg)
 			continue
 
-		if(visible_message_flags & EMOTE_MESSAGE)
+		if(visible_message_flags & EMOTE_MESSAGE && !M.is_blind())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = visible_message_flags)
 
 		M.show_message(msg, MSG_VISUAL, blind_message, MSG_AUDIBLE)
@@ -250,7 +250,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	if(audible_message_flags & EMOTE_MESSAGE)
 		message = "<b>[src]</b> [message]"
 	for(var/mob/M in hearers)
-		if(audible_message_flags & EMOTE_MESSAGE)
+		if(audible_message_flags & EMOTE_MESSAGE && M.can_hear())
 			M.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
 		M.show_message(message, MSG_AUDIBLE, deaf_message, MSG_VISUAL)
 
@@ -443,7 +443,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 		// shift-click catcher may issue examinate() calls for out-of-sight turfs
 		return
 
-	if(is_blind(src))
+	if(is_blind())
 		to_chat(src, span_warning("Something is there but I can't see it!"))
 		return
 
