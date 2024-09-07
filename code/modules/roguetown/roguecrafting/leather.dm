@@ -3,6 +3,7 @@
 	tools = list(/obj/item/needle)
 	structurecraft = /obj/structure/fluff/dryingrack
 	skillcraft = /datum/skill/craft/tanning
+	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/leather/pouch
 	name = "leather pouch"
@@ -18,6 +19,7 @@
 	reqs = list(/obj/item/natural/hide = 2,
 				/obj/item/natural/fibers = 1)
 	sellprice = 15
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/backpack
 	name = "leather backpack"
@@ -25,6 +27,7 @@
 	reqs = list(/obj/item/natural/hide = 2,
 				/obj/item/natural/fibers = 1)
 	sellprice = 45
+	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/waterskin
 	name = "waterskin"
@@ -32,6 +35,7 @@
 	reqs = list(/obj/item/natural/hide = 1,
 				/obj/item/natural/fibers = 2)
 	sellprice = 45
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/quiver
 	name = "quiver"
@@ -52,6 +56,7 @@
 	result = /obj/item/clothing/gloves/roguetown/angle
 	reqs = list(/obj/item/natural/fur = 1)
 	sellprice = 20
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/bracers
 	name = "leather bracers"
@@ -85,6 +90,7 @@
 	result = /obj/item/clothing/head/roguetown/helmet/leather
 	reqs = list(/obj/item/natural/hide = 1)
 	sellprice = 27
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/hood
 	name = "leather hood"
@@ -102,6 +108,7 @@
 	result = /obj/item/clothing/suit/roguetown/armor/leather
 	reqs = list(/obj/item/natural/hide = 2)
 	sellprice = 26
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/hidearmor
 	name = "hide armor"
@@ -109,6 +116,7 @@
 	reqs = list(/obj/item/natural/hide = 2,
 				/obj/item/natural/fur = 1)
 	sellprice = 26
+	craftdiff = 2
 
 /datum/crafting_recipe/roguetown/leather/cloak
 	name = "leather cloak"
@@ -143,6 +151,7 @@
 	result = /obj/item/rogueweapon/whip
 	reqs = list(/obj/item/natural/hide = 2,/obj/item/natural/stone = 1)
 	sellprice = 39
+	craftdiff = 1
 
 /datum/crafting_recipe/roguetown/leather/drum
 	name = "Drum"
