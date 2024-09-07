@@ -689,13 +689,9 @@
 			aimheight = 1
 
 ///Checks if passed through item is blind
-/proc/is_blind(A)
-	if(ismob(A))
-		var/mob/B = A
-		if(HAS_TRAIT(B, TRAIT_BLIND))
-			return TRUE
-		return B.eye_blind
-	return FALSE
+/mob/proc/is_blind(A)
+	SHOULD_BE_PURE(TRUE)
+	return eye_blind ? TRUE : HAS_TRAIT(src, TRAIT_BLIND)
 
 ///Is the mob hallucinating?
 /mob/proc/hallucinating()
