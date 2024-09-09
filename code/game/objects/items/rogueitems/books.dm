@@ -232,7 +232,7 @@
 	bookfile = "law.json"
 
 /obj/item/book/rogue/cooking
-	name = "Tastes Fit For The Lord" 
+	name = "Tastes Fit For The Lord"
 	desc = ""
 	icon_state ="book_0"
 	base_icon_state = "book"
@@ -392,14 +392,14 @@
 	icon_state = "basic_book_0"
 	base_icon_state = "basic_book"
 	override_find_book = TRUE
-	
+
 /obj/item/book/rogue/playerbook/Initialize(loc, in_round_player_generated, var/mob/living/in_round_player_mob, text)
 	. = ..()
 	is_in_round_player_generated = in_round_player_generated
 	if(is_in_round_player_generated)
 		player_book_text = text
 		while(!player_book_author_ckey) // doesn't have to be this, but better than defining a bool.
-			player_book_title = dd_limittext(capitalize(sanitize_hear_message(input(in_round_player_mob, "What title do you want to give the book? (max 42 characters)", "Title", "Unknown"))), MAX_NAME_LEN)	
+			player_book_title = dd_limittext(capitalize(sanitize_hear_message(input(in_round_player_mob, "What title do you want to give the book? (max 42 characters)", "Title", "Unknown"))), MAX_NAME_LEN)
 			player_book_author = "[dd_limittext(sanitize_hear_message(input(in_round_player_mob, "What do you want the author text to be? (max 42 characters)", "Author", "")), MAX_NAME_LEN)]"
 			player_book_icon = book_icons[input(in_round_player_mob, "Choose a book style", "Book Style") as anything in book_icons]
 			player_book_author_ckey = in_round_player_mob.ckey
@@ -444,26 +444,42 @@
 		return ..()
 
 	if(istype(I, /obj/item/natural/feather/magic))
-//	Start by making it require 5 pages, a very justified annoyance.
 		if(src.number_of_pages <= 4)
 			to_chat(user, "This manuscript does not have enough pages to write an entire spellbook in it...")
 			return
-		
+
 		var/obj/item/natural/feather/magic/F = I
 		var/arcane_score = 0
 		var/total_score = 0
+//		var/crafttime = 0
 
-//	Make is so you can't write spellbooks if you are below Journeyman.
+//		 Make is so you can't write spellbooks if you are below Journeyman.
 		for(var/i in 1 to user.mind.get_skill_level(/datum/skill/magic/arcane))
 			arcane_score += 1
 		if(arcane_score <= 2)
-			to_chat(user, "You don not have enough arcane knowledge to inscribe a spellbook...")
+			to_chat(user, "You do not have enough arcane knowledge to inscribe a spellbook...")
 			return
 
-//	The math here is so it is borderline impossible to get a 100% success chance, those are supposed to be hard to make
-		total_score += (arcane_score*6) + user.STAINT
-		for(var/i in 1 to user.mind.get_skill_level(/datum/skill/misc/reading))
-			total_score += 4
+//		 The math here is so it is borderline impossible to get a 100% success chance, those are supposed to be hard to make
+		total_score += (arcane_score * 6) + (user.STAINT * 2)
+//		crafttime = 10 - arcane_score
+//		for(var/i in 1 to user.mind.get_skill_level(/datum/skill/misc/reading))
+//			total_score += 4
+
+//		for(var/i=1, i<=crafttime, i++)
+//		if(!turn_page(user))
+//			on_reading_stopped()
+//			reading = FALSE
+//			return
+
+//		playsound(user, pick('sound/blank.ogg'), 30, TRUE)
+//		if(do_after(user,50, user))
+//			if(remarks.len)
+//				to_chat(user, span_notice("[pick(remarks)]"))
+//			else
+//				to_chat(user, span_notice("I keep reading..."))
+//			return TRUE
+//		return FALSE
 
 		if(prob(total_score))
 			var/obj/item/book/granter/spell/generic/SB = new /obj/item/book/granter/spell/generic(get_turf(I.loc), pick(GLOB.learnables))
@@ -475,7 +491,8 @@
 			qdel(src)
 		else
 			to_chat(user, "As you write, the feather glows but the magic gets out of control and the manuscript can not contain it, turning it into dust.")
-			new /obj/item/ash(get_turf(src.loc))
+			var/obj/O = new /obj/item/ash(get_turf(src.loc))
+			O.fire_act(1,5)
 			qdel(src)
 		// else something here about the feather not being able to write a spellbook
 		if(F.uses >= F.max_uses)
