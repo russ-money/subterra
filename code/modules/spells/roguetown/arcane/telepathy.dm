@@ -1,7 +1,7 @@
 //TELEPATHY---------------------------
 
 /obj/effect/proc_holder/spell/arcane/telepathy
-	name = "telepathy"
+	name = "Telepathy"
 	desc = ""
 	range = 15
 	overlay_state = "psy"
