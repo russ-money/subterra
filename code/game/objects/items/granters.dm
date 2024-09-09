@@ -9,6 +9,7 @@
 	var/reading = FALSE //sanity
 	var/oneuse = TRUE //default this is true, but admins can var this to 0 if we wanna all have a pass around of the rod form book
 	var/used = FALSE //only really matters if oneuse but it might be nice to know if someone's used it for admin investigations perhaps
+	var/open = FALSE
 
 /obj/item/book/granter/proc/turn_page(mob/user)
 	playsound(user, pick('sound/blank.ogg'), 30, TRUE)
@@ -124,6 +125,7 @@
 	var/spell
 	var/spellname = "conjure bugs"
 
+/*
 /obj/item/book/granter/spell/already_known(mob/user)
 	if(!spell)
 		return TRUE
@@ -154,6 +156,7 @@
 	..()
 	if(oneuse)
 		user.visible_message(span_warning("[src] glows dark for a second!"))
+*/
 
 /obj/item/book/granter/spell/fireball
 	spell = /obj/effect/proc_holder/spell/aimed/fireball
@@ -514,8 +517,9 @@
 /obj/item/book/granter/spell/generic
 	name = "Spellbook"
 	desc = "A book of potential known only to those that can decipher its secrets."
-	icon = 'icons/obj/library.dmi'
-	icon_state = "book1"
+	icon = 'icons/roguetown/items/books.dmi'
+	icon_state = "spell_book_0"
+	var/base_icon_state = "spell_book"
 	oneuse = TRUE
 	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
 	pickup_sound =  'sound/blank.ogg'
@@ -526,8 +530,57 @@
 	target = pick(GLOB.learnables)
 	var/obj/effect/proc_holder/spell/arcane/S = new target
 	spellname = S.name
-	name = "Book of [spellname]"
+	name = "Tome of [spellname]"
+//----------------------------------------------
 
+/obj/item/book/granter/spell/generic/attack_self(mob/user)
+	if(!open)
+		attack_right(user)
+		return
+	..()
+	user.update_inv_hands()
+
+/obj/item/book/rogue/rmb_self(mob/user)
+	attack_right(user)
+	return
+
+/obj/item/book/rogue/read(mob/user)
+	if(!open)
+		to_chat(user, span_info("Open me first."))
+		return FALSE
+	. = ..()
+
+/obj/item/book/granter/spell/generic/attackby(obj/item/I, mob/user, params)
+	return
+
+/obj/item/book/granter/spell/generic/attack_right(mob/user)
+	if(!open)
+		slot_flags &= ~ITEM_SLOT_HIP
+		open = TRUE
+		playsound(loc, 'sound/items/book_open.ogg', 100, FALSE, -1)
+/*		if(user.mind.get_skill_level(/datum/skill/magic/arcane) >= 1 && user.mind.get_skill_level(/datum/skill/misc/reading) >= 3)//
+			to_chat(user, "<span class='notice'>You can grasp the arcane knowledge within this tome...</span>")//
+			playsound(loc, 'sound/magic/churn.ogg', 100, FALSE, -1)//
+		if(user.ranged_ability == !null)//
+			user.ranged_ability.deactivate(user.ranged_ability)//
+		user.ranged_ability = target//
+		user.ranged_ability.active = TRUE//
+		user.mmb_intent_change(QINTENT_SPELL)//
+Was trying to make so you can cast the spell holding the open book but I failed miserably...*/
+	else
+		slot_flags |= ITEM_SLOT_HIP
+		open = FALSE
+		playsound(loc, 'sound/items/book_close.ogg', 100, FALSE, -1)
+//		if (user.ranged_ability == target)//
+//			user.mmb_intent_change(null)//
+	curpage = 1
+	update_icon()
+	user.update_inv_hands()
+
+/obj/item/book/granter/spell/generic/update_icon()
+	icon_state = "[base_icon_state]_[open]"
+
+//----------------------------------------------
 /obj/item/book/granter/spell/generic/already_known(mob/user)
 	if(!target)
 		return TRUE
@@ -542,10 +595,21 @@
 
 /obj/item/book/granter/spell/generic/on_reading_finished(mob/user)
 	. = ..()
+	var/learnedspells = 0
+	for(var/obj/effect/proc_holder/spell/arcane/knownspell in user.mind.spell_list)
+		learnedspells += 1
+	if(learnedspells == 0)
+		to_chat(user, "<span class='notice'>...You can't make sense of the sprawling runes...</span>")
+		return
+	else if(learnedspells >= (1 + user.mind.get_skill_level(/datum/skill/magic/arcane)))
+		to_chat(user, "<span class='notice'>You tried hard to grasp it, unfortunately you are at the limit of your current arcane power...</span>")
+		return
 	if(oneuse)
 		name = "Siphoned Book of [target.name]"
 		desc = "A book once inscribed with magical scripture. The surface is now barren of knowledge, siphoned by someone else. It's utterly useless."
 		user.visible_message("<span class='warning'>[src] has had its magic ink ripped from the book!</span>")
+		icon_state = "used_spell_book_[open]"
+		base_icon_state = "used_spell_book"
 	to_chat(user, "<span class='notice'>Your knowledge expands, you understand how to cast [spellname]!</span>")
 	var/S = new target
 	user.mind.AddSpell(S)
