@@ -9,7 +9,7 @@
 	releasedrain = 50
 	chargedrain = 1
 	chargetime = 15
-	charge_max = 20 SECONDS
+	charge_max = 30 SECONDS
 	charging_slowdown = 3
 	learnable = TRUE
 	var/include_space = FALSE //whether it includes space tiles in possible teleport locations
