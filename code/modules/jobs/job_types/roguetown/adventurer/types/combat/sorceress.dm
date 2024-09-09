@@ -31,19 +31,23 @@
 	r_hand = /obj/item/rogueweapon/woodstaff
 	if(H.mind)
 		H.mind.adjust_skillrank(/datum/skill/combat/polearms, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, pick(0,1,1), TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, pick(0,1,1), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/wrestling, pick(0,1,2), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/unarmed, pick(0,1,2), TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/swimming, 1, TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/climbing, pick(0,1), TRUE)
 		H.mind.adjust_skillrank(/datum/skill/misc/athletics, 1, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/combat/knives, pick(0,1,1,2), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/swords, pick(0,1), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/combat/knives, pick(0,1,2), TRUE)
 		H.mind.adjust_skillrank(/datum/skill/craft/crafting, pick(0,1), TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/reading, 4, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 3, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 2, TRUE)
-		H.mind.adjust_skillrank(/datum/skill/misc/medicine, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/medicine, pick(0,1), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/riding, 1, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/reading, pick(2,3), TRUE)
+		H.mind.adjust_skillrank(/datum/skill/misc/alchemy, 2, TRUE)
+		H.mind.adjust_skillrank(/datum/skill/magic/arcane, 4, TRUE)
 		if(H.age == AGE_OLD)
-			H.mind.adjust_skillrank(/datum/skill/magic/arcane, pick(2,3,3), TRUE)
+			H.mind.adjust_skillrank(/datum/skill/magic/arcane, pick(3,4,4), TRUE)
+			H.change_stat("intelligence", 5)
+			H.change_stat("strength", -2)
 		H.change_stat("strength", -1)
 		H.change_stat("intelligence", 4)
 		H.change_stat("speed", 1)
@@ -55,7 +59,9 @@
 			"/obj/effect/proc_holder/spell/arcane/smokescreen",
 			"/obj/effect/proc_holder/spell/arcane/blindness",
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
-			"/obj/effect/proc_holder/spell/arcane/projectile/fetch"
+			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
+			"/obj/effect/proc_holder/spell/arcane/mist",
+			"/obj/effect/proc_holder/spell/arcane/web"
 		)
 		H.mind.AddSpell(pick(new /obj/effect/proc_holder/spell/arcane/projectile/fireball,new /obj/effect/proc_holder/spell/arcane/projectile/lightningbolt))
 		for(var/i=2,i>0,i--)
