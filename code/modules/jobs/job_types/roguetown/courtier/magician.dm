@@ -77,10 +77,11 @@
 			"/obj/effect/proc_holder/spell/arcane/swap",
 			"/obj/effect/proc_holder/spell/arcane/smokescreen",
 			"/obj/effect/proc_holder/spell/arcane/projectile/lightningbolt",
-			"/obj/effect/proc_holder/spell/arcane/projectile/fireball",
 			"/obj/effect/proc_holder/spell/arcane/blindness",
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
-			"/obj/effect/proc_holder/spell/arcane/projectile/fetch"
+			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
+			"/obj/effect/proc_holder/spell/arcane/mist",
+			"/obj/effect/proc_holder/spell/arcane/web"
 		)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/arcane/projectile/fireball/greater)
 		for(var/i=3,i>0,i--)
@@ -89,4 +90,3 @@
 			H.mind.AddSpell(new typepath)
 			possible_spells.Remove(random_item)
 		possible_spells = null
-
