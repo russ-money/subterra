@@ -10,15 +10,17 @@
 	chargedrain = 0
 	chargetime = 0
 	charge_max = 10 SECONDS
-	smoke_spread = 1	//Just Smoke
-	smoke_amt = 2
 	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/smokescreen/cast(list/targets,mob/user = usr)
 	. = ..()
-	if(isliving(targets[1]))
-		return TRUE
-	else if(isopenturf(targets[1]))
+	if(isliving(targets[1]) | isopenturf(targets[1]))
+		var/atom/location = get_turf(targets[1])
+		for(var/atom/T in oview(1,location))
+			if(T.x == location.x | T.y == location.y)//make it a cross instead of a damn square
+				var/datum/effect_system/smoke_spread/smoke = new
+				smoke.set_up(1, T)
+				smoke.start()
 		return TRUE
 	return FALSE
 
@@ -34,16 +36,17 @@
 	chargedrain = 1
 	chargetime = 10
 	charge_max = 15 SECONDS
-	smoke_spread = 2  //Now it makes the target cough and drop items in hand
-	smoke_amt = 1
 	learnable = FALSE
 
 /obj/effect/proc_holder/spell/arcane/densesmoke/cast(list/targets,mob/user = usr)
 	. = ..()
-	if(isliving(targets[1]))
-		return TRUE
-	else if(isopenturf(targets[1]))
-		return TRUE
+	if(isliving(targets[1]) | isopenturf(targets[1]))
+		var/atom/location = get_turf(targets[1])
+		if(location in oview(range,user))
+			var/datum/effect_system/smoke_spread/bad/smoke  = new
+			smoke.set_up(1, location)
+			smoke.start()
+			return TRUE
 	return FALSE
 
 //SLEEPING GAS-------------------
@@ -58,14 +61,40 @@
 	chargedrain = 1
 	chargetime = 30
 	charge_max = 30 SECONDS
-	smoke_spread = 3  //Now this will make the target to fall asleep
-	smoke_amt = 2
 	learnable = FALSE
 
 /obj/effect/proc_holder/spell/arcane/sleepgas/cast(list/targets,mob/user = usr)
 	. = ..()
-	if(isliving(targets[1]))
-		return TRUE
-	else if(isopenturf(targets[1]))
-		return TRUE
+	if(isliving(targets[1]) | isopenturf(targets[1]))
+		var/atom/location = get_turf(targets[1])
+		if(location in oview(range,user))
+			var/datum/effect_system/smoke_spread/sleeping/smoke  = new
+			smoke.set_up(1, location)
+			smoke.start()
+			return TRUE
 	return FALSE
+
+//MIST-----------------
+
+/obj/effect/proc_holder/spell/arcane/mist
+	name = "Conjure Mist"
+	desc = ""
+	overlay_state = "mist"
+	sound = 'sound/items/firesnuff.ogg'
+	range = 8
+	releasedrain = 50
+	chargedrain = 1
+	chargetime = 30
+	charge_max = 30 SECONDS
+	learnable = TRUE
+
+/obj/effect/proc_holder/spell/arcane/mist/cast(list/targets,mob/user = usr)
+	. = ..()
+	var/atom/location = get_turf(user)
+	for(var/atom/T in oview(5,location))
+		if(!(T in oview(1,location)))
+			if(prob(35))
+				var/datum/effect_system/smoke_spread/smoke = new
+				smoke.set_up(1, T)
+				smoke.start()
+	return TRUE
