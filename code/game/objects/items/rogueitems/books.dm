@@ -440,9 +440,6 @@
 	if(resistance_flags & ON_FIRE)
 		return ..()
 
-	if(is_blind(user))
-		return ..()
-
 	if(istype(I, /obj/item/natural/feather/magic))
 		if(src.number_of_pages <= 4)
 			to_chat(user, "This manuscript does not have enough pages to write an entire spellbook in it...")
