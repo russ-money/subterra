@@ -451,7 +451,7 @@
 		var/obj/item/natural/feather/magic/F = I
 		var/arcane_score = 0
 		var/total_score = 0
-//		var/crafttime = 0
+//		var/crafttime = 0  The crafting is currently instantaneous so no need for this shit (yet)
 
 //		 Make is so you can't write spellbooks if you are below Journeyman.
 		for(var/i in 1 to user.mind.get_skill_level(/datum/skill/magic/arcane))
@@ -465,22 +465,6 @@
 //		crafttime = 10 - arcane_score
 //		for(var/i in 1 to user.mind.get_skill_level(/datum/skill/misc/reading))
 //			total_score += 4
-
-//		for(var/i=1, i<=crafttime, i++)
-//		if(!turn_page(user))
-//			on_reading_stopped()
-//			reading = FALSE
-//			return
-
-//		playsound(user, pick('sound/blank.ogg'), 30, TRUE)
-//		if(do_after(user,50, user))
-//			if(remarks.len)
-//				to_chat(user, span_notice("[pick(remarks)]"))
-//			else
-//				to_chat(user, span_notice("I keep reading..."))
-//			return TRUE
-//		return FALSE
-
 		if(prob(total_score))
 			var/obj/item/book/granter/spell/generic/SB = new /obj/item/book/granter/spell/generic(get_turf(I.loc), pick(GLOB.learnables))
 			if(user.Adjacent(SB))
@@ -490,10 +474,10 @@
 			to_chat(user, "As you finish writing, the feather glows and envelops the manuscript, becoming a new spellbook.")
 			qdel(src)
 		else
-			to_chat(user, "As you write, the feather glows but the magic gets out of control and the manuscript can not contain it, turning it into dust.")
+			to_chat(user, "As you write, the feather glows but the magic gets out of control and the manuscript can not contain it, imploding it into dust.")
 			var/obj/O = new /obj/item/ash(get_turf(src.loc))
-			O.fire_act(1,5)
 			qdel(src)
+			explosion(O.loc,0,0,0,1,FALSE,,1,,TRUE)
 		// else something here about the feather not being able to write a spellbook
 		if(F.uses >= F.max_uses)
 			to_chat(user, "The feather's magic glows dimly, and then it turns into dust.")
