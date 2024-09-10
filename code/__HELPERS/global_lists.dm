@@ -90,7 +90,7 @@
 			GLOB.preference_patrons[path] = patron
 
 	// Learnable Arcane Spells
-	GLOB.learnables = Get_Learnable_Spells()n
+	GLOB.learnables = Get_Learnable_Spells()
 
 //creates every subtype of prototype (excluding prototype) and adds it to list L.
 //if no list/L is provided, one is created.
