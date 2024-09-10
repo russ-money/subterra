@@ -1,4 +1,5 @@
-/*/datum/job/roguetown/wapprentice
+/*
+/datum/job/roguetown/wapprentice
 	title = "Magician's Apprentice"
 	flag = MAGEAPPRENTICE
 	department_flag = YOUNGFOLK
@@ -21,9 +22,10 @@
 	tutorial = "Your master once saw potential in you, something you are uncertain if they still do with your recent studies. The path to using magic is something treacherous and untamed, and you are still decades away from calling yourself even a journeyman in the field. Listen and serve, and someday you will earn your hat."
 
 	outfit = /datum/outfit/job/roguetown/wapprentice
-	
 	display_order = JDO_MAGEAPPRENTICE
 	give_bank_account = TRUE
+	min_pq = -5
+	max_pq = null
 
 /datum/outfit/job/roguetown/wapprentice/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -64,7 +66,8 @@
 		"/obj/effect/proc_holder/spell/arcane/invisibility",
 		"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
 		"/obj/effect/proc_holder/spell/arcane/mist",
-		"/obj/effect/proc_holder/spell/arcane/web"
+		"/obj/effect/proc_holder/spell/arcane/web",
+		"/obj/effect/proc_holder/spell/arcane/chain"
 	)
 	for(var/i=2,i>0,i--)
 		var/random_item = pick(possible_spells)
