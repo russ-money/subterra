@@ -17,7 +17,13 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/arcane
 	charging_slowdown = 1
-	var/learnable = FALSE //If the spell can be learnable by spellbooks, FALSE by default to avoid dumb issues. put TRUE individually on those that can be learnt via craftable spellbooks.
+	var/learnable = FALSE //If the spell can be learnable by spellbooks, FALSE by default to avoid dumb issues
+//							put TRUE only those that can be learnt via crafable spellbooks.
+
+/obj/effect/temp_visual/acast
+	icon_state = "emppulse"
+	layer = ABOVE_MOB_LAYER
+	plane = GAME_PLANE_UPPER
 
 /obj/effect/proc_holder/spell/arcane/Click()
 	var/mob/living/user = usr
@@ -58,6 +64,7 @@
 		return FALSE
 	if(perform(list(target), TRUE, user = ranged_ability_user))
 		caller.mind.adjust_experience(associated_skill, (caller.STAINT*0.3))//Arcane Skill exp gain - Delete/Edit if on your leisure
+		new /obj/effect/temp_visual/acast(get_turf(caller))
 		return TRUE
 
 /obj/effect/proc_holder/spell/arcane/projectile
