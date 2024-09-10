@@ -3257,7 +3257,7 @@
 #include "code\modules\shuttle\white_ship.dm"
 #include "code\modules\spells\spell.dm"
 #include "code\modules\spells\roguetown\_roguetown.dm"
-#include "code\modules\spells\roguetown\.dm"
+#include "code\modules\spells\roguetown\arcane.dm"
 #include "code\modules\spells\roguetown\confessor.dm"
 #include "code\modules\spells\roguetown\monk.dm"
 #include "code\modules\spells\roguetown\necromancer.dm"
