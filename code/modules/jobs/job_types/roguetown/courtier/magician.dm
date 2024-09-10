@@ -81,7 +81,8 @@
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
 			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
 			"/obj/effect/proc_holder/spell/arcane/mist",
-			"/obj/effect/proc_holder/spell/arcane/web"
+			"/obj/effect/proc_holder/spell/arcane/web",
+			"/obj/effect/proc_holder/spell/arcane/chain"
 		)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/arcane/projectile/fireball/greater)
 		for(var/i=3,i>0,i--)
