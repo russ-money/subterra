@@ -39,15 +39,10 @@
 		var/list/possible_spells = list(
 			"/obj/effect/proc_holder/spell/arcane/telepathy",
 			"/obj/effect/proc_holder/spell/arcane/ignite",
-			"/obj/effect/proc_holder/spell/arcane/blink",
-			"/obj/effect/proc_holder/spell/arcane/swap",
 			"/obj/effect/proc_holder/spell/arcane/smokescreen",
-			"/obj/effect/proc_holder/spell/arcane/projectile/fireball",
-			"/obj/effect/proc_holder/spell/arcane/projectile/lightningbolt",
 			"/obj/effect/proc_holder/spell/arcane/blindness",
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
 			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
-			"/obj/effect/proc_holder/spell/arcane/mist",
 			"/obj/effect/proc_holder/spell/arcane/web",
 			"/obj/effect/proc_holder/spell/arcane/chain"
 		)
