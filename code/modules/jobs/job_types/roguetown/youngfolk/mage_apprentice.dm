@@ -42,8 +42,6 @@
 			"/obj/effect/proc_holder/spell/arcane/blink",
 			"/obj/effect/proc_holder/spell/arcane/swap",
 			"/obj/effect/proc_holder/spell/arcane/smokescreen",
-			"/obj/effect/proc_holder/spell/arcane/projectile/fireball",
-			"/obj/effect/proc_holder/spell/arcane/projectile/lightningbolt",
 			"/obj/effect/proc_holder/spell/arcane/blindness",
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
 			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
@@ -69,7 +67,7 @@
 		shoes = /obj/item/clothing/shoes/roguetown/sandals
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
 		belt = /obj/item/storage/belt/rogue/leather/rope
-		beltr = /obj/item/roguekey/tower
+		beltr = /obj/item/keyring/mageapprentice
 		armor = /obj/item/clothing/suit/roguetown/armor/workervest
 		backr = /obj/item/storage/backpack/rogue/satchel
 	H.change_stat("intelligence", round(rand(0,5)))
