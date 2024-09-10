@@ -521,8 +521,11 @@
 	icon_state = "spell_book_0"
 	var/base_icon_state = "spell_book"
 	oneuse = TRUE
+	dropshrink = 0.6
 	drop_sound = 'sound/foley/dropsound/paper_drop.ogg'
 	pickup_sound =  'sound/blank.ogg'
+	force = 6
+	bookfile = "spellbook.json"
 	var/obj/effect/proc_holder/spell/arcane/target = null
 
 /obj/item/book/granter/spell/generic/Initialize(loc)
@@ -605,7 +608,7 @@ Was trying to make so you can cast the spell holding the open book but I failed 
 		to_chat(user, "<span class='notice'>You tried hard to grasp it, unfortunately you are at the limit of your current arcane power...</span>")
 		return
 	if(oneuse)
-		name = "Siphoned Book of [target.name]"
+		name = "Siphoned Tome"
 		desc = "A book once inscribed with magical scripture. The surface is now barren of knowledge, siphoned by someone else. It's utterly useless."
 		user.visible_message("<span class='warning'>[src] has had its magic ink ripped from the book!</span>")
 		icon_state = "used_spell_book_[open]"
