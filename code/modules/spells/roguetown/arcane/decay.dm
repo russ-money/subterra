@@ -17,7 +17,7 @@
 
 /obj/projectile/magic/decaybolt
 	name = "sickness"
-	icon_state = "xray"
+	icon_state = "necropotence"
 	damage = 10
 	damage_type = BURN
 	nodamage = FALSE
@@ -35,5 +35,5 @@
 			return BULLET_ACT_BLOCK
 		if(iscarbon(target))
 			var/mob/living/carbon/L = target
-			L.add_nausea(15)
-			L.adjustToxLoss(5, 0)
+			L.add_nausea(rand(50,150))
+			L.adjustToxLoss(10)

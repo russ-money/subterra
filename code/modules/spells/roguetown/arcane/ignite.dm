@@ -19,7 +19,7 @@
 		user.visible_message("<font color='yellow'>[user] points at [L]!</font>")
 		if(L.anti_magic_check(TRUE, TRUE))
 			return FALSE
-		L.adjust_fire_stacks(3 + user.mind.get_skill_level(/datum/skill/magic/arcane))
+		L.adjust_fire_stacks(2 + user.mind.get_skill_level(/datum/skill/magic/arcane))
 		L.IgniteMob()
 		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, ExtinguishMob)), 5 SECONDS)
 		return TRUE

@@ -85,7 +85,7 @@
 	releasedrain = 50
 	chargedrain = 1
 	chargetime = 30
-	charge_max = 30 SECONDS
+	charge_max = 60 SECONDS
 	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/mist/cast(list/targets,mob/user = usr)
