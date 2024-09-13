@@ -61,7 +61,13 @@
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
 			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
 			"/obj/effect/proc_holder/spell/arcane/mist",
-			"/obj/effect/proc_holder/spell/arcane/web"
+			"/obj/effect/proc_holder/spell/arcane/web",
+			"/obj/effect/proc_holder/spell/arcane/feather",
+			"/obj/effect/proc_holder/spell/arcane/magicwall",
+			"/obj/effect/proc_holder/spell/arcane/ensnare",
+			"/obj/effect/proc_holder/spell/arcane/repulse",
+			"/obj/effect/proc_holder/spell/arcane/unlock",
+			"/obj/effect/proc_holder/spell/arcane/light"
 		)
 		H.mind.AddSpell(pick(new /obj/effect/proc_holder/spell/arcane/projectile/fireball,new /obj/effect/proc_holder/spell/arcane/projectile/lightningbolt))
 		for(var/i=2,i>0,i--)
