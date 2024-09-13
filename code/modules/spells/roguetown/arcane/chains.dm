@@ -10,7 +10,7 @@
 	chargedrain = 1
 	chargetime = 10
 	charge_max = 60 SECONDS
-	learnable = FALSE
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/chain/cast(list/targets, mob/living/user)
 	. = ..()
