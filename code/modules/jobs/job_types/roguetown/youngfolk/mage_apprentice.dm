@@ -3,8 +3,9 @@
 	flag = MAGEAPPRENTICE
 	department_flag = YOUNGFOLK
 	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
+	total_positions = 0
+	spawn_positions = 0
+//I disabled it for consistency but this job looks functional so far, I even gave a weak spell selection to them just in case.
 
 	allowed_races = list(
 		"Humen",
@@ -44,7 +45,9 @@
 			"/obj/effect/proc_holder/spell/arcane/invisibility",
 			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
 			"/obj/effect/proc_holder/spell/arcane/web",
-			"/obj/effect/proc_holder/spell/arcane/chain"
+			"/obj/effect/proc_holder/spell/arcane/chain",
+			"/obj/effect/proc_holder/spell/arcane/feather",
+			"/obj/effect/proc_holder/spell/arcane/light"
 		)
 		for(var/i=2,i>0,i--)
 			var/random_item = pick(possible_spells)
