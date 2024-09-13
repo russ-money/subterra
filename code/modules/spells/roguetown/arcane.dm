@@ -63,7 +63,9 @@
 	if(!can_cast(caller) || !cast_check(FALSE, ranged_ability_user))
 		return FALSE
 	if(perform(list(target), TRUE, user = ranged_ability_user))
-		caller.mind.adjust_experience(associated_skill, (caller.STAINT*0.3))//Arcane Skill exp gain - Delete/Edit if on your leisure
+		//Arcane Skill exp gain - Delete/Edit if on your leisure
+		caller.mind.adjust_experience(associated_skill, (releasedrain*0.1)*(caller.STAINT*0.1))
+		//caller.mind.adjust_experience(associated_skill, (caller.STAINT*0.3))
 		new /obj/effect/temp_visual/acast(get_turf(caller))
 		return TRUE
 
