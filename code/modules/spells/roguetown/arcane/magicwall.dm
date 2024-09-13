@@ -11,12 +11,12 @@
 	charge_max = 60 SECONDS
 	charging_slowdown = 3
 	sound = 'sound/magic/magic_nulled.ogg'
-	learnable = FALSE
+	learnable = TRUE
 	var/wall_type = /obj/structure/magicwall/caster
 
 /obj/structure/magicwall
 	desc = "A wall of pure arcyne force."
-	name = "Arcyne Wall"
+	name = "Arcane Wall"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "m_shield"
 	break_sound = 'sound/combat/hits/onstone/stonedeath.ogg'

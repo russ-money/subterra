@@ -11,7 +11,7 @@
 	charge_max = 20 SECONDS
 	charging_slowdown = 2
 	movement_interrupt = TRUE
-	learnable = FALSE
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/unlock/cast(list/targets, mob/user = usr)
 	var/atom/location = get_turf(targets[1])

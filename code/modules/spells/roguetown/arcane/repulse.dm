@@ -10,7 +10,7 @@
 	chargetime = 0
 	charge_max = 30 SECONDS
 	charging_slowdown = 2
-	learnable = FALSE
+	learnable = TRUE
 	var/stun_amt = 5
 	var/maxthrow = 3
 	var/repulse_force = MOVE_FORCE_STRONG

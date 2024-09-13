@@ -10,7 +10,7 @@
 	chargetime = 20
 	charge_max = 30 SECONDS
 	charging_slowdown = 3
-	learnable = FALSE
+	learnable = TRUE
 	var/area_of_effect = 1
 	var/duration = 4 SECONDS
 

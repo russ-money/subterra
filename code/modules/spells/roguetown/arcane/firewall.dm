@@ -10,7 +10,7 @@
 	chargedrain = 1
 	chargetime = 20
 	charge_max = 40 SECONDS
-	learnable = FALSE
+	learnable = TRUE
 	charging_slowdown = 2
 
 /obj/effect/proc_holder/spell/arcane/firewall/cast(list/targets,mob/user = usr)

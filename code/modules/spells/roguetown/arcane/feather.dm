@@ -10,7 +10,7 @@
 	chargedrain = 1
 	chargetime = 15
 	charge_max = 5 SECONDS
-	learnable = FALSE
+	learnable = TRUE
 
 /obj/effect/proc_holder/spell/arcane/feather/cast(list/targets, mob/living/user)
 	if(isliving(targets[1]))
