@@ -146,3 +146,25 @@
 	name = "Dazed"
 	desc = ""
 	icon_state = "weed"
+
+/atom/movable/screen/alert/status_effect/buff/feather
+	name = "Featherweight"
+	desc = "My body is light, I can jump higher and falling from heights is not painful."
+	icon_state = "buff"
+
+/datum/status_effect/buff/feather
+	id = "feather"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/feather
+	duration = 1 MINUTES
+
+/datum/status_effect/buff/feather/on_apply()
+	. = ..()
+	to_chat(owner, span_warning("I feel lighter."))
+	ADD_TRAIT(owner, TRAIT_NOFALLDAMAGE1, MAGIC_TRAIT)
+	ADD_TRAIT(owner, TRAIT_ZJUMP, MAGIC_TRAIT)
+
+/datum/status_effect/buff/feather/on_remove()
+	. = ..()
+	to_chat(owner, span_warning("The feeling of lightness fades."))
+	REMOVE_TRAIT(owner, TRAIT_NOFALLDAMAGE1, MAGIC_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_ZJUMP, MAGIC_TRAIT)
