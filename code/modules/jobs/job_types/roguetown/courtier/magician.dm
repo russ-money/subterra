@@ -34,7 +34,7 @@
 	pants = /obj/item/clothing/under/roguetown/tights/random
 	shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	belt = /obj/item/storage/belt/rogue/leather/plaquesilver
-	beltr = /obj/item/keyring/mage
+	beltr = /obj/item/keyring/mageapprentice
 	id = /obj/item/clothing/ring/gold
 	r_hand = /obj/item/rogueweapon/woodstaff
 	backl = /obj/item/storage/backpack/rogue/satchel
@@ -82,7 +82,12 @@
 			"/obj/effect/proc_holder/spell/arcane/projectile/fetch",
 			"/obj/effect/proc_holder/spell/arcane/mist",
 			"/obj/effect/proc_holder/spell/arcane/web",
-			"/obj/effect/proc_holder/spell/arcane/chain"
+			"/obj/effect/proc_holder/spell/arcane/chain",
+			"/obj/effect/proc_holder/spell/arcane/feather",
+			"/obj/effect/proc_holder/spell/arcane/magicwall",
+			"/obj/effect/proc_holder/spell/arcane/ensnare",
+			"/obj/effect/proc_holder/spell/arcane/repulse",
+			"/obj/effect/proc_holder/spell/arcane/firewall"
 		)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/arcane/projectile/fireball/greater)
 		for(var/i=3,i>0,i--)
