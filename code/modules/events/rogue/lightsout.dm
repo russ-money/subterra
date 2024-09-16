@@ -3,7 +3,7 @@
 	typepath = /datum/round_event/rogue/lightsout
 	weight = 5
 	max_occurrences = 1
-	min_players = 0
+	min_players = 5
 	req_omen = TRUE
 	todreq = list("dusk", "night")
 
